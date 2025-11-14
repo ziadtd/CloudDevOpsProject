@@ -169,6 +169,280 @@ docker stop flask-app
 docker rm flask-app
 docker rmi flask-app:latest
 ```
+
+### 8. Commit to Repository
+
+```bash
+cd ~/CloudDevOpsProject
+git add .
+git commit -m "Step 3"
+git push origin main
+```
 ## Deliverables:
 
 - Docker Image: `https://hub.docker.com/repository/docker/ziadtd/flask-app/general`
+- Dockerfile at: `https://github.com/ziadtd/CloudDevOpsProject/main/docker/Dockerfile`
+
+---
+# Step 3: Container Orchestration with Kubernetes
+
+
+### 1. Prerequisites Check
+
+First, ensure the necessary tools are installed:
+
+```bash
+# Check kubectl
+kubectl version --client
+
+# Check if you have kubeadm (testing) and access to EKS (deployment)
+kubeadm version
+aws eks list-clusters
+```
+
+### 3. Create Kubernetes Manifests
+
+`namespace.yaml`
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ivolve
+  labels:
+    name: ivolve
+    environment: production
+    project: clouddevops
+```
+`configmap.yaml`
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flask-app-config
+  namespace: ivolve
+  labels:
+    app: flask-app
+data:
+  APP_PORT: "5000"
+```
+
+`deployment.yaml`
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+  namespace: ivolve
+  labels:
+    app: flask-app
+    version: v1.0.0
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app
+        version: v1.0.0
+    spec:
+      containers:
+      - name: flask-app
+        image: ziadtd/flask-app:v1.0  
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 5000
+          protocol: TCP
+        
+        envFrom:
+        - configMapRef:
+            name: flask-app-config
+        
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 3
+          successThreshold: 1
+          failureThreshold: 3
+        
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          successThreshold: 1
+          failureThreshold: 3
+        
+        # Security context
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1001
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        
+      # Restart policy
+      restartPolicy: Always
+```
+
+`service-clusterip.yaml`
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-service
+  namespace: ivolve
+  labels:
+    app: flask-app
+spec:
+  type: ClusterIP
+  selector:
+    app: flask-app
+  ports:
+  - name: http
+    port: 80
+    targetPort: 5000
+    protocol: TCP
+```
+
+`service-nodeport.yaml` for testing
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-app-service
+  namespace: ivolve
+spec:
+  type: NodePort
+  selector:
+    app: flask-app
+  ports:
+  - port: 80
+    targetPort: 5000
+    nodePort: 30012
+```
+
+`hpa.yaml`
+```yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: flask-app-hpa
+  namespace: ivolve
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: flask-app
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+```
+
+`ingress.yaml`
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flask-app-ingress
+  namespace: ivolve
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: flask-app-service
+            port:
+              number: 80
+```
+
+
+### 4. Deploy to Kubeadm to test:
+
+```bash
+
+kubectl apply -f namespace.yaml
+
+# Apply all other resources
+kubectl apply -f configmap.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service-nodeport.yaml
+kubectl apply -f hpa.yaml
+
+kubectl get all -n ivolve
+```
+
+---
+
+### 5. Test the Deployment
+
+```bash
+# Check if pods are running
+kubectl get pods -n ivolve
+
+# Check services
+kubectl get svc -n ivolve
+
+
+
+
+
+# Test with curl
+curl < worker-node >:30012
+
+# View logs
+kubectl logs -f deployment/flask-app -n ivolve
+```
+
+---
+
+### 9. Commit to Repository
+
+```bash
+cd ~/CloudDevOpsProject
+git add .
+git commit -m "Step 3"
+git push origin main
+```
+
+## Deliverables:
+
+- Kubernetes Yaml files at: `https://github.com/ziadtd/CloudDevOpsProject/blob/main/kubernetes/`
