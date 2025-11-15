@@ -1,0 +1,112 @@
+---
+# Docker role - Install and configure Docker
+
+- name: Install Docker packages
+  yum:
+    name: "{{ docker_packages }}"
+    state: present
+  tags:
+    - docker
+    - packages
+
+- name: Start and enable Docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes
+  tags:
+    - docker
+    - service
+
+- name: Add users to docker group
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  loop: "{{ docker_users }}"
+  tags:
+    - docker
+    - users
+  notify: restart docker
+
+- name: Install Docker Compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/v{{ docker_compose_version }}/docker-compose-linux-x86_64"
+    dest: /usr/local/bin/docker-compose
+    mode: '0755'
+  tags:
+    - docker
+    - docker-compose
+
+- name: Create Docker Compose symlink
+  file:
+    src: /usr/local/bin/docker-compose
+    dest: /usr/bin/docker-compose
+    state: link
+  tags:
+    - docker
+    - docker-compose
+
+- name: Configure Docker daemon
+  copy:
+    content: |
+      {
+        "log-driver": "json-file",
+        "log-opts": {
+          "max-size": "10m",
+          "max-file": "3"
+        },
+        "storage-driver": "overlay2"
+      }
+    dest: /etc/docker/daemon.json
+    mode: '0644'
+  notify: restart docker
+  tags:
+    - docker
+    - config
+
+- name: Ensure Docker is running
+  systemd:
+    name: docker
+    state: started
+  tags:
+    - docker
+    - service
+
+- name: Verify Docker installation
+  command: docker --version
+  register: docker_version_output
+  changed_when: false
+  tags:
+    - docker
+    - verify
+
+- name: Verify Docker Compose installation
+  command: docker-compose --version
+  register: docker_compose_version_output
+  changed_when: false
+  tags:
+    - docker
+    - verify
+
+- name: Display Docker version
+  debug:
+    msg:
+      - "Docker: {{ docker_version_output.stdout }}"
+      - "Docker Compose: {{ docker_compose_version_output.stdout }}"
+  tags:
+    - docker
+    - verify
+
+- name: Test Docker with hello-world
+  docker_container:
+    name: hello-world-test
+    image: hello-world
+    state: started
+    auto_remove: yes
+    detach: no
+  tags:
+    - docker
+    - test
+  ignore_errors: yes
+

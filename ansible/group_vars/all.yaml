@@ -1,0 +1,65 @@
+---
+# Global variables for all hosts
+
+# System Configuration
+timezone: "UTC"
+locale: "en_US.UTF-8"
+
+# User Configuration
+admin_users:
+  - ec2-user
+  - jenkins
+
+# Package Repository URLs
+jenkins_repo_url: "https://pkg.jenkins.io/redhat-stable/jenkins.repo"
+jenkins_repo_key_url: "https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key"
+
+# Java Configuration
+java_version: "java-17-amazon-corretto"
+java_packages:
+  - "java-17-amazon-corretto"
+  - "java-17-amazon-corretto-devel"
+
+# Docker Configuration
+docker_packages:
+  - docker
+docker_users:
+  - ec2-user
+  - jenkins
+docker_compose_version: "2.23.0"
+
+# Git Configuration
+git_packages:
+  - git
+  - git-core
+
+# Jenkins Configuration
+jenkins_version: "latest"
+jenkins_port: 8080
+jenkins_home: "/var/lib/jenkins"
+jenkins_admin_username: "admin"
+jenkins_plugins:
+  - git
+  - docker-workflow
+  - pipeline-aws
+  - kubernetes
+  - kubernetes-cli
+  - ansible
+  - blueocean
+  - configuration-as-code
+  - job-dsl
+  - workflow-aggregator
+  - credentials-binding
+  - ssh-agent
+
+# AWS Configuration
+aws_region: "us-east-1"
+aws_cli_version: "2"
+
+# Security
+disable_selinux: false
+enable_firewall: false
+
+# Monitoring
+enable_cloudwatch_agent: true
+

@@ -1,0 +1,66 @@
+---
+# Common role - System updates and basic configuration
+
+- name: Update all packages
+  yum:
+    name: '*'
+    state: latest
+    update_cache: yes
+  tags:
+    - common
+    - updates
+
+- name: Install useful system packages
+  yum:
+    name:
+      - wget
+      - curl
+      - vim
+      - unzip
+      - tar
+      - net-tools
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+    state: present
+  tags:
+    - common
+    - packages
+
+- name: Set timezone
+  timezone:
+    name: "{{ timezone }}"
+  tags:
+    - common
+    - timezone
+
+- name: Disable SELinux (if configured)
+  selinux:
+    state: disabled
+  when: disable_selinux | bool
+  tags:
+    - common
+    - selinux
+
+- name: Create admin users home directories
+  file:
+    path: "/home/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ admin_users }}"
+  when: item != 'root'
+  tags:
+    - common
+    - users
+
+- name: Ensure SSH directory exists
+  file:
+    path: "/home/ec2-user/.ssh"
+    state: directory
+    mode: '0700'
+    owner: ec2-user
+    group: ec2-user
+  tags:
+    - common
+    - ssh
+

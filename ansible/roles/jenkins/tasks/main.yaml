@@ -1,0 +1,146 @@
+---
+# Jenkins role - Install and configure Jenkins
+
+- name: Import Jenkins GPG key
+  rpm_key:
+    key: "{{ jenkins_repo_key_url }}"
+    state: present
+  tags:
+    - jenkins
+    - repos
+
+- name: Add Jenkins repository
+  get_url:
+    url: "{{ jenkins_repo_url }}"
+    dest: /etc/yum.repos.d/jenkins.repo
+    mode: '0644'
+  tags:
+    - jenkins
+    - repos
+
+- name: Install Jenkins
+  yum:
+    name: jenkins
+    state: present
+  tags:
+    - jenkins
+    - packages
+
+- name: Ensure Jenkins home directory exists
+  file:
+    path: "{{ jenkins_home }}"
+    state: directory
+    owner: jenkins
+    group: jenkins
+    mode: '0755'
+  tags:
+    - jenkins
+    - directories
+
+- name: Configure Jenkins Java options
+  lineinfile:
+    path: /etc/sysconfig/jenkins
+    regexp: '^JENKINS_JAVA_OPTIONS='
+    line: 'JENKINS_JAVA_OPTIONS="-Djava.awt.headless=true -Xmx2048m -Xms512m"'
+    create: yes
+  notify: restart jenkins
+  tags:
+    - jenkins
+    - config
+
+- name: Configure Jenkins port
+  lineinfile:
+    path: /etc/sysconfig/jenkins
+    regexp: '^JENKINS_PORT='
+    line: 'JENKINS_PORT="{{ jenkins_port }}"'
+    create: yes
+  notify: restart jenkins
+  tags:
+    - jenkins
+    - config
+
+- name: Start and enable Jenkins service
+  systemd:
+    name: jenkins
+    state: started
+    enabled: yes
+  tags:
+    - jenkins
+    - service
+
+- name: Wait for Jenkins to start
+  wait_for:
+    port: "{{ jenkins_port }}"
+    delay: 10
+    timeout: 300
+  tags:
+    - jenkins
+    - service
+
+- name: Wait for Jenkins to be ready (check initialAdminPassword)
+  wait_for:
+    path: "{{ jenkins_home }}/secrets/initialAdminPassword"
+    timeout: 300
+  tags:
+    - jenkins
+    - service
+
+- name: Get Jenkins initial admin password
+  slurp:
+    src: "{{ jenkins_home }}/secrets/initialAdminPassword"
+  register: jenkins_admin_password
+  tags:
+    - jenkins
+    - password
+
+- name: Display Jenkins initial admin password
+  debug:
+    msg: "Jenkins Initial Admin Password: {{ jenkins_admin_password.content | b64decode }}"
+  tags:
+    - jenkins
+    - password
+
+- name: Create Jenkins info file
+  template:
+    src: jenkins-info.j2
+    dest: /home/ec2-user/jenkins-info.txt
+    owner: ec2-user
+    group: ec2-user
+    mode: '0644'
+  tags:
+    - jenkins
+    - info
+
+- name: Install Jenkins CLI
+  get_url:
+    url: "http://localhost:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar"
+    dest: "{{ jenkins_home }}/jenkins-cli.jar"
+    mode: '0644'
+    owner: jenkins
+    group: jenkins
+  retries: 5
+  delay: 10
+  tags:
+    - jenkins
+    - cli
+
+- name: Verify Jenkins is running
+  uri:
+    url: "http://localhost:{{ jenkins_port }}"
+    status_code: 200,403
+    timeout: 10
+  register: jenkins_status
+  retries: 5
+  delay: 10
+  tags:
+    - jenkins
+    - verify
+
+- name: Display Jenkins status
+  debug:
+    msg: "Jenkins is running and accessible on port {{ jenkins_port }}"
+  when: jenkins_status is succeeded
+  tags:
+    - jenkins
+    - verify
+

@@ -1,0 +1,45 @@
+---
+# Java role - Install and configure Java
+
+- name: Install Java OpenJDK 17
+  yum:
+    name: "{{ java_packages }}"
+    state: present
+  tags:
+    - java
+    - packages
+
+- name: Set JAVA_HOME environment variable
+  lineinfile:
+    path: /etc/environment
+    line: 'JAVA_HOME=/usr/lib/jvm/java-17-openjdk'
+    create: yes
+  tags:
+    - java
+    - environment
+
+- name: Add Java to PATH in profile
+  lineinfile:
+    path: /etc/profile.d/java.sh
+    line: 'export PATH=$JAVA_HOME/bin:$PATH'
+    create: yes
+    mode: '0644'
+  tags:
+    - java
+    - environment
+
+- name: Verify Java installation
+  command: java -version
+  register: java_version_output
+  changed_when: false
+  tags:
+    - java
+    - verify
+
+- name: Display Java version
+  debug:
+    var: java_version_output.stderr_lines
+  tags:
+    - java
+    - verify
+

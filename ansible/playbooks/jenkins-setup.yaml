@@ -1,0 +1,95 @@
+---
+# Main playbook for Jenkins server setup
+
+- name: Configure Jenkins Server
+  hosts: jenkins
+  gather_facts: yes
+  become: yes
+  vars_files:
+    - ../group_vars/all.yaml
+
+  pre_tasks:
+    - name: Display target hosts
+      debug:
+        msg: "Configuring {{ inventory_hostname }} ({{ ansible_host }})"
+      tags: always
+
+    - name: Wait for system to be ready
+      wait_for_connection:
+        delay: 5
+        timeout: 300
+      tags: always
+
+    - name: Gather facts
+      setup:
+      tags: always
+
+  roles:
+    - role: common
+      tags:
+        - common
+        - base
+
+    - role: java
+      tags:
+        - java
+        - jenkins-deps
+
+    - role: git
+      tags:
+        - git
+        - jenkins-deps
+
+    - role: docker
+      tags:
+        - docker
+        - jenkins-deps
+
+    - role: jenkins
+      tags:
+        - jenkins
+
+  post_tasks:
+    - name: Display completion message
+      debug:
+        msg:
+          - "=========================================="
+          - "Jenkins Setup Complete!"
+          - "=========================================="
+          - "Jenkins URL: http://{{ ansible_host }}:{{ jenkins_port }}"
+          - "SSH: ssh -i vockey.pem ec2-user@{{ ansible_host }}"
+          - "Check /home/ec2-user/jenkins-info.txt for details"
+          - "=========================================="
+      tags: always
+
+    - name: Create summary file
+      copy:
+        content: |
+          Jenkins Configuration Summary
+          =============================
+          
+          Configuration Date: {{ ansible_date_time.iso8601 }}
+          Hostname: {{ ansible_hostname }}
+          IP Address: {{ ansible_host }}
+          
+          Installed Components:
+          - Java: {{ java_version }}
+          - Docker: Installed
+          - Git: Installed
+          - Jenkins: {{ jenkins_version }}
+          
+          Services Status:
+          - Docker: Active
+          - Jenkins: Active on port {{ jenkins_port }}
+          
+          Next Steps:
+          1. Access Jenkins at http://{{ ansible_host }}:{{ jenkins_port }}
+          2. Use initial admin password from jenkins-info.txt
+          3. Configure Jenkins plugins and settings
+          
+        dest: /home/ec2-user/ansible-summary.txt
+        owner: ec2-user
+        group: ec2-user
+        mode: '0644'
+      tags: always
+

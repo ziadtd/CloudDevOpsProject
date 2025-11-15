@@ -1,0 +1,27 @@
+====================================
+Jenkins Installation Information
+====================================
+
+Jenkins URL: http://{{ ansible_host }}:{{ jenkins_port }}
+
+Initial Admin Password:
+{{ jenkins_admin_password.content | b64decode }}
+
+SSH Access:
+ssh -i vockey.pem ec2-user@{{ ansible_host }}
+
+To retrieve password later:
+sudo cat {{ jenkins_home }}/secrets/initialAdminPassword
+
+Installation Date: {{ ansible_date_time.iso8601 }}
+Hostname: {{ ansible_hostname }}
+====================================
+
+Next Steps:
+1. Open Jenkins URL in your browser
+2. Use the initial admin password above
+3. Install suggested plugins
+4. Create your first admin user
+5. Start creating jobs!
+
+====================================

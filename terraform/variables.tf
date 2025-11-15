@@ -43,7 +43,7 @@ variable "jenkins_instance_type" {
 variable "key_name" {
   description = "EC2 key pair name for SSH access"
   type        = string
-  default     = "labuser"
+  default     = "vockey"
 }
 
 variable "iam_instance_profile_name" {

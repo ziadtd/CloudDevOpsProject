@@ -1,0 +1,58 @@
+---
+# Git role - Install and configure Git
+
+- name: Install Git packages
+  yum:
+    name: "{{ git_packages }}"
+    state: present
+  tags:
+    - git
+    - packages
+
+- name: Configure Git global settings for ec2-user
+  git_config:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    scope: global
+  loop:
+    - { name: 'user.name', value: 'Jenkins CI' }
+    - { name: 'user.email', value: 'jenkins@clouddevops.local' }
+    - { name: 'core.editor', value: 'vim' }
+    - { name: 'pull.rebase', value: 'false' }
+  become: yes
+  become_user: ec2-user
+  tags:
+    - git
+    - config
+
+- name: Configure Git global settings for jenkins user
+  git_config:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    scope: global
+  loop:
+    - { name: 'user.name', value: 'Jenkins CI' }
+    - { name: 'user.email', value: 'jenkins@clouddevops.local' }
+    - { name: 'core.editor', value: 'vim' }
+    - { name: 'pull.rebase', value: 'false' }
+  become: yes
+  become_user: jenkins
+  tags:
+    - git
+    - config
+
+- name: Verify Git installation
+  command: git --version
+  register: git_version_output
+  changed_when: false
+  tags:
+    - git
+    - verify
+
+- name: Display Git version
+  debug:
+    var: git_version_output.stdout
+  tags:
+    - git
+    - verify
+
