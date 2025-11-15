@@ -88,7 +88,7 @@ cd docker
 vim Dockerfile
 ```
 The Dockerfile is available in the Docker Directory
-[Dockerfile](docker/Dcokerfile)
+[Dockerfile](docker/Dockerfile)
 
 
 ### 4. Build to test the Image
