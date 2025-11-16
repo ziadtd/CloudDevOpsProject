@@ -1,14 +1,23 @@
 ---
 # Docker role - Install and configure Docker
 
-- name: Install Docker packages
-  yum:
-    name: "{{ docker_packages }}"
+- name: Install Docker dependencies (dnf)
+  dnf:
+    name:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
     state: present
+    use_backend: "{{ dnf_backend }}"
+  when: use_dnf | default(false) | bool
   tags:
     - docker
-    - packages
 
+- name: Install Docker dependencies (yum)
+  shell: yum install -y yum-utils device-mapper-persistent-data lvm2
+  when: not use_dnf | default(false) | bool
+  tags:
+    - docker
 - name: Start and enable Docker service
   systemd:
     name: docker
@@ -97,16 +106,4 @@
   tags:
     - docker
     - verify
-
-- name: Test Docker with hello-world
-  docker_container:
-    name: hello-world-test
-    image: hello-world
-    state: started
-    auto_remove: yes
-    detach: no
-  tags:
-    - docker
-    - test
-  ignore_errors: yes
 

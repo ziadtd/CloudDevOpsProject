@@ -28,7 +28,7 @@ chmod 400 ../terraform/vockey.pem
 
 # Test dynamic inventory
 echo -e "${YELLOW}Testing dynamic inventory...${NC}"
-ansible-inventory --list
+ansible-inventory -i ./inventory/aws_ec2.yaml  --list
 
 # Ping all hosts
 echo -e "${YELLOW}Testing connectivity to hosts...${NC}"

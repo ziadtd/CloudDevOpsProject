@@ -23,7 +23,27 @@
     - name: Gather facts
       setup:
       tags: always
+  
+    - name: Detect package manager type
+      raw: |
+        if command -v dnf &> /dev/null; then
+          dnf --version 2>&1 | head -1
+        elif command -v yum &> /dev/null; then
+          echo "yum"
+        else
+          echo "unknown"
+        fi
+      register: pkg_manager_detect
+      changed_when: false
+      tags: always
 
+    - name: Set global package manager facts
+      set_fact:
+        use_dnf: "{{ 'dnf' in pkg_manager_detect.stdout }}"
+        use_dnf5: "{{ 'dnf5' in pkg_manager_detect.stdout }}"
+        use_dnf4: "{{ 'dnf4' in pkg_manager_detect.stdout or ('dnf' in pkg_manager_detect.stdout and 'dnf5' not in pkg_manager_detect.stdout) }}"
+        dnf_backend: "{{ 'dnf5' if 'dnf5' in pkg_manager_detect.stdout else 'dnf4' }}"
+      tags: always
   roles:
     - role: common
       tags:

@@ -1,13 +1,20 @@
 ---
 # Git role - Install and configure Git
 
-- name: Install Git packages
-  yum:
-    name: "{{ git_packages }}"
+- name: Install Git (dnf)
+  dnf:
+    name: "{{ git_packages | default(['git']) }}"
     state: present
+    use_backend: "{{ dnf_backend }}"
+  when: use_dnf | default(false) | bool
   tags:
     - git
-    - packages
+
+- name: Install Git (yum)
+  shell: yum install -y git
+  when: not use_dnf | default(false) | bool
+  tags:
+    - git
 
 - name: Configure Git global settings for ec2-user
   git_config:

@@ -18,10 +18,19 @@
     - jenkins
     - repos
 
-- name: Install Jenkins
-  yum:
+- name: Install Jenkins (dnf)
+  dnf:
     name: jenkins
     state: present
+    use_backend: "{{ dnf_backend }}"
+  when: use_dnf | default(false) | bool
+  tags:
+    - jenkins
+    - packages
+
+- name: Install Jenkins (yum)
+  shell: yum install -y jenkins
+  when: not use_dnf | default(false) | bool
   tags:
     - jenkins
     - packages
@@ -143,4 +152,3 @@
   tags:
     - jenkins
     - verify
-
