@@ -5,7 +5,7 @@ metadata:
   namespace: ivolve
   labels:
     app: flask-app
-    version: v1.0.0
+    version: v1.0
 spec:
   replicas: 3
   strategy:

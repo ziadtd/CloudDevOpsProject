@@ -189,7 +189,6 @@ All Files are available in the Kubernetes Directory
 [service-clusterip.yaml](kubernetes/service-clusterip.yaml)
 
 [service-nodeport.yaml](kubernetes/service-nodeport.yaml)
-
 #### For testing on kubeadm
 
 [hpa.yaml](kubernetes/hpa.yaml)
@@ -302,23 +301,23 @@ The only available CloudWatch functionality is the Dashboard
 
 In the Modules direcory create a Server directory with:
 
-[main.tf](terraform/modules/server/main.tf)
+[`main.tf`](terraform/modules/server/main.tf)
 
-[variables.tf](terraform/modules/server/variables.tf)
+[`variables.tf`](terraform/modules/server/variables.tf)
 
-[outputs.tf](terraform/modules/server/outputs.tf)
+[`outputs.tf`](terraform/modules/server/outputs.tf)
 
-[user-data.sh](terraform/modules/server/user-data.sh)
+[`user-data.sh`](terraform/modules/server/user-data.sh)
 
 ### 6. Create EKS Module Configuration Files
 
 In the Modules direcory create an EKS directory with:
 
-[main.tf](terraform/modules/eks/main.tf)
+[`main.tf`](terraform/modules/eks/main.tf)
 
-[variables.tf](terraform/modules/eks/variables.tf)
+[`variables.tf`](terraform/modules/eks/variables.tf)
 
-[outputs.tf](terraform/modules/eks/outputs.tf)
+[`outputs.tf`](terraform/modules/eks/outputs.tf)
 
 ### 7. Deploy Infrastrructre
 
@@ -370,7 +369,52 @@ On AWS Console check the creation of:
 - 1 CloudWatch Log Group (for EKS)
 - 2 CloudWatch Metric Alarms (CPU and Memory)
 
-### 8. Commit to Repository
+
+### 8. Deploying K8s Configuration on EKS 
+
+Now that the EKS cluster has been deployed using Terraform, the cluster can be used to deploy the application:
+
+```bash
+# Configure kubectl for EKS
+aws eks update-kubeconfig --region us-east-1 --name CloudDevOpsProject-dev-eks
+
+kubectl get nodes
+
+# Deploy the manifests
+
+cd ~/CloudDevOpsProject/kubernetes
+kubectl apply -f namespace.yaml
+kubectl apply -f configmap.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service-clusterip.yaml
+kubectl apply -f service-nodeport.yaml
+
+kubectl get all -n ivolve
+kubectl get pods -n ivolve
+
+# Get node external IP
+kubectl get nodes -o wide
+
+# Access via NodePort
+curl http://< NODE_EXTERNAL_IP >:30012
+```
+To access it using a URL:
+
+#### Note: due to restrictions on the AWS Learner LAB the LB couldn't be properly configured so a simple Ngnix Ingress Controller was used
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/aws/deploy.yaml
+
+# Wait for the NLB to be created (takes 2-3 minutes)
+kubectl get svc -n ingress-nginx ingress-nginx-controller --watch
+
+# Once EXTERNAL-IP appears:
+kubectl get ingress -n ivolve
+#Address Column shows App URL
+#i.e. http://aa6202944f7f74fc69ce6fd97863eb02-23b5ff77e8883da9.elb.us-east-1.amazonaws.com/
+```
+
+### 9. Commit to Repository
 
 #### Note: All SSH keys (\*.pem) are included in gitignore for security reasons
 
@@ -545,6 +589,7 @@ git push origin main
 
 ## Deliverables:
 
-- Terraform Files : `https://github.com/ziadtd/CloudDevOpsProject/blob/main/terraform/`
+- Ansible Modules and Inventory Files : `https://github.com/ziadtd/CloudDevOpsProject/blob/main/ansible/`
 
 ---
+

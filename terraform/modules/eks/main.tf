@@ -10,8 +10,6 @@ resource "aws_security_group" "eks_cluster" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-
 }
 
 resource "aws_security_group" "eks_nodes" {
@@ -26,7 +24,6 @@ resource "aws_security_group" "eks_nodes" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
 }
 
 resource "aws_security_group_rule" "cluster_inbound" {
@@ -62,7 +59,6 @@ resource "aws_security_group_rule" "nodes_cluster_inbound" {
 resource "aws_cloudwatch_log_group" "eks" {
   name              = "/aws/eks/${var.project_name}-${var.environment}-eks/cluster"
   retention_in_days = 7
-
 }
 
 resource "aws_eks_cluster" "main" {
@@ -83,6 +79,19 @@ resource "aws_eks_cluster" "main" {
     aws_cloudwatch_log_group.eks,
     aws_security_group.eks_cluster
   ]
+}
+
+# Add NodePort rule to the EKS-managed security group
+resource "aws_security_group_rule" "eks_managed_nodeport" {
+  type              = "ingress"
+  from_port         = 30000
+  to_port           = 32767
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_eks_cluster.main.vpc_config[0].cluster_security_group_id
+  description       = "Allow NodePort access to EKS nodes"
+  
+  depends_on = [aws_eks_cluster.main]
 }
 
 resource "aws_eks_node_group" "main" {

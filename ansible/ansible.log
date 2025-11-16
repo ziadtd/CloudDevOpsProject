@@ -35588,3 +35588,1628 @@ the meaning of that path. See https://docs.ansible.com/ansible-core/2.15/referen
 2025-11-16 16:17:01,024 p=7995 u=ziad n=ansible | changed: [jenkins]
 2025-11-16 16:17:01,036 p=7995 u=ziad n=ansible | PLAY RECAP *********************************************************************************************************************************************************************
 2025-11-16 16:17:01,036 p=7995 u=ziad n=ansible | jenkins                    : ok=48   changed=8    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+2025-11-16 17:13:40,635 p=9620 u=ziad n=ansible | [WARNING]: Collection amazon.aws does not support Ansible version 2.15.13
+
+2025-11-16 17:13:40,737 p=9620 u=ziad n=botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:13:41,769 p=9620 u=ziad n=botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:13:42,695 p=9620 u=ziad n=ansible | [WARNING]:  * Failed to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml with yaml plugin: Plugin configuration YAML file, not YAML inventory
+
+2025-11-16 17:13:42,696 p=9620 u=ziad n=ansible | [WARNING]:  * Failed to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml with ini plugin: Invalid host pattern '---' supplied, '---' is normally a sign this
+is a YAML file.
+
+2025-11-16 17:13:42,697 p=9620 u=ziad n=ansible | [WARNING]:  * Failed to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml with auto plugin: Failed to describe instances: An error occurred
+(UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-
+role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+2025-11-16 17:13:42,698 p=9620 u=ziad n=ansible | [WARNING]:  * Failed to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml with ansible_collections.amazon.aws.plugins.inventory.aws_ec2 plugin: Failed to
+describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User:
+arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-
+based policy
+
+2025-11-16 17:13:42,698 p=9620 u=ziad n=ansible | [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:13:42,698 p=9620 u=ziad n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:13:42,704 p=9620 u=ziad n=ansible | {
+    "_meta": {
+        "hostvars": {}
+    },
+    "all": {
+        "children": [
+            "ungrouped"
+        ]
+    }
+}
+2025-11-16 17:13:43,191 p=9622 u=ziad n=ansible | [WARNING]: Collection amazon.aws does not support Ansible version 2.15.13
+
+2025-11-16 17:13:43,280 p=9622 u=ziad n=botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:13:43,352 p=9622 u=ziad n=ansible |  [ERROR]: User interrupted execution
+
+2025-11-16 17:13:45,248 p=9626 u=ziad n=ansible | Using /home/ziad/CloudDevOpsProject/ansible/ansible.cfg as config file
+2025-11-16 17:13:45,369 p=9626 u=ziad n=ansible | [WARNING]: Collection amazon.aws does not support Ansible version 2.15.13
+
+2025-11-16 17:13:45,440 p=9626 u=ziad n=ansible | Using inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' to process inventory source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'
+2025-11-16 17:13:45,455 p=9626 u=ziad n=botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:13:46,369 p=9626 u=ziad n=botocore.credentials | Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:13:47,243 p=9626 u=ziad n=ansible | [WARNING]:  * Failed to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml with yaml plugin: Plugin configuration YAML file, not YAML inventory
+
+2025-11-16 17:13:47,243 p=9626 u=ziad n=ansible | [WARNING]:  * Failed to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml with ini plugin: Invalid host pattern '---' supplied, '---' is normally a sign this
+is a YAML file.
+
+2025-11-16 17:13:47,244 p=9626 u=ziad n=ansible | [WARNING]:  * Failed to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml with auto plugin: Failed to describe instances: An error occurred
+(UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-
+role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+2025-11-16 17:13:47,245 p=9626 u=ziad n=ansible | [WARNING]:  * Failed to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml with ansible_collections.amazon.aws.plugins.inventory.aws_ec2 plugin: Failed to
+describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User:
+arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-
+based policy
+
+2025-11-16 17:13:47,245 p=9626 u=ziad n=ansible | [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:13:47,245 p=9626 u=ziad n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:13:47,249 p=9626 u=ziad n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2025-11-16 17:13:47,530 p=9626 u=ziad n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: jenkins
+
+2025-11-16 17:13:47,532 p=9626 u=ziad n=ansible | PLAY [Configure Jenkins Server] ************************************************************************************************************************************************
+2025-11-16 17:13:47,532 p=9626 u=ziad n=ansible | skipping: no hosts matched
+2025-11-16 17:13:47,532 p=9626 u=ziad n=ansible | PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:15:05,196 p=9685 u=ziad n=ansible INFO| Using /home/ziad/CloudDevOpsProject/ansible/ansible.cfg as config file
+2025-11-16 17:15:05,357 p=9685 u=ziad n=ansible INFO| Using inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' to process inventory source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'
+2025-11-16 17:15:05,406 p=9685 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:15:06,494 p=9685 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:15:07,393 p=9685 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:07,394 p=9685 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:15:07,394 p=9685 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:07,395 p=9685 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:07,395 p=9685 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:15:07,395 p=9685 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:15:07,400 p=9685 u=ziad n=ansible WARNING| [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2025-11-16 17:15:07,667 p=9685 u=ziad n=ansible WARNING| [WARNING]: Could not match supplied host pattern, ignoring: jenkins
+
+2025-11-16 17:15:07,670 p=9685 u=ziad n=ansible INFO| PLAY [Configure Jenkins Server] ************************************************************************************************************************************************
+2025-11-16 17:15:07,670 p=9685 u=ziad n=ansible INFO| skipping: no hosts matched
+2025-11-16 17:15:07,670 p=9685 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:15:34,950 p=9699 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:15:35,877 p=9699 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:15:36,749 p=9699 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:36,749 p=9699 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:15:36,750 p=9699 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:36,750 p=9699 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:36,750 p=9699 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:15:36,751 p=9699 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:15:36,756 p=9699 u=ziad n=ansible INFO| {
+    "_meta": {
+        "hostvars": {},
+        "profile": "inventory_legacy"
+    },
+    "all": {
+        "children": [
+            "ungrouped"
+        ]
+    }
+}
+2025-11-16 17:15:37,438 p=9703 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:15:40,348 p=9703 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:15:41,268 p=9703 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:41,270 p=9703 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:15:41,271 p=9703 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:41,272 p=9703 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:41,272 p=9703 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:15:41,273 p=9703 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:15:41,277 p=9703 u=ziad n=ansible WARNING| [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2025-11-16 17:15:41,330 p=9703 u=ziad n=ansible INFO| PLAY [Ansible Ad-Hoc] **********************************************************************************************************************************************************
+2025-11-16 17:15:41,336 p=9703 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:15:41,982 p=9707 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:15:42,926 p=9707 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:15:43,940 p=9707 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:43,940 p=9707 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:15:43,941 p=9707 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:43,941 p=9707 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:15:43,941 p=9707 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:15:43,942 p=9707 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:15:43,946 p=9707 u=ziad n=ansible WARNING| [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2025-11-16 17:15:44,222 p=9707 u=ziad n=ansible WARNING| [WARNING]: Could not match supplied host pattern, ignoring: jenkins
+
+2025-11-16 17:15:44,225 p=9707 u=ziad n=ansible INFO| PLAY [Configure Jenkins Server] ************************************************************************************************************************************************
+2025-11-16 17:15:44,225 p=9707 u=ziad n=ansible INFO| skipping: no hosts matched
+2025-11-16 17:15:44,225 p=9707 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:18:18,767 p=9818 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:18:20,579 p=9818 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:18:21,451 p=9818 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:21,453 p=9818 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:18:21,454 p=9818 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:21,454 p=9818 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:21,454 p=9818 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:18:21,455 p=9818 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:18:21,462 p=9818 u=ziad n=ansible INFO| {
+    "_meta": {
+        "hostvars": {},
+        "profile": "inventory_legacy"
+    },
+    "all": {
+        "children": [
+            "ungrouped"
+        ]
+    }
+}
+2025-11-16 17:18:22,120 p=9821 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:18:23,068 p=9821 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:18:24,049 p=9821 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:24,049 p=9821 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:18:24,049 p=9821 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:24,050 p=9821 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:24,050 p=9821 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:18:24,050 p=9821 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:18:24,055 p=9821 u=ziad n=ansible WARNING| [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2025-11-16 17:18:24,102 p=9821 u=ziad n=ansible INFO| PLAY [Ansible Ad-Hoc] **********************************************************************************************************************************************************
+2025-11-16 17:18:24,109 p=9821 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:18:24,752 p=9825 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:18:25,655 p=9825 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:18:26,532 p=9825 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:26,532 p=9825 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:18:26,532 p=9825 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:26,533 p=9825 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:18:26,533 p=9825 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:18:26,533 p=9825 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:18:26,537 p=9825 u=ziad n=ansible WARNING| [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2025-11-16 17:18:26,806 p=9825 u=ziad n=ansible WARNING| [WARNING]: Could not match supplied host pattern, ignoring: jenkins
+
+2025-11-16 17:18:26,809 p=9825 u=ziad n=ansible INFO| PLAY [Configure Jenkins Server] ************************************************************************************************************************************************
+2025-11-16 17:18:26,809 p=9825 u=ziad n=ansible INFO| skipping: no hosts matched
+2025-11-16 17:18:26,809 p=9825 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:19:58,172 p=9852 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:19:59,190 p=9852 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:20:00,098 p=9852 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:20:00,098 p=9852 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:20:00,099 p=9852 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:20:00,100 p=9852 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:20:00,100 p=9852 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:20:00,100 p=9852 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:20:00,105 p=9852 u=ziad n=ansible INFO| @all:
+  |--@ungrouped:
+2025-11-16 17:20:07,262 p=9863 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:20:10,546 p=9863 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:20:11,397 p=9863 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'yaml' plugin: Plugin configuration YAML file, not YAML inventory
+
+Failed to parse inventory with 'yaml' plugin.
+
+<<< caused by >>>
+
+Plugin configuration YAML file, not YAML inventory
+Origin: <inventory plugin 'yaml' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:20:11,398 p=9863 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ini' plugin: Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+
+Failed to parse inventory with 'ini' plugin.
+
+<<< caused by >>>
+
+Failed to parse inventory: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML file.
+Origin: /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml
+
+
+2025-11-16 17:20:11,398 p=9863 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'auto' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'auto' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'auto' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:20:11,398 p=9863 u=ziad n=ansible WARNING| [WARNING]: Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin: Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+
+Failed to parse inventory with 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' plugin.
+
+<<< caused by >>>
+
+Failed to describe instances: An error occurred (UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to perform this operation. User: arn:aws:sts::013607837025:assumed-role/voclabs/user2650670=ziadtareqd22@gmail.com is not authorized to perform: ec2:DescribeInstances with an explicit deny in an identity-based policy
+Origin: <inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' with source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'>
+
+
+2025-11-16 17:20:11,398 p=9863 u=ziad n=ansible WARNING| [WARNING]: Unable to parse /home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml as an inventory source
+
+2025-11-16 17:20:11,399 p=9863 u=ziad n=ansible WARNING| [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2025-11-16 17:20:11,402 p=9863 u=ziad n=ansible WARNING| [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2025-11-16 17:20:11,452 p=9863 u=ziad n=ansible INFO| PLAY [Ansible Ad-Hoc] **********************************************************************************************************************************************************
+2025-11-16 17:20:11,456 p=9863 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:21:16,395 p=9894 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:21:17,682 p=9894 u=ziad n=ansible INFO| PLAY [Ansible Ad-Hoc] **********************************************************************************************************************************************************
+2025-11-16 17:21:17,691 p=9894 u=ziad n=ansible WARNING| [WARNING]: Found variable using reserved name 'tags'.
+Origin: <unknown>
+
+tags
+
+
+2025-11-16 17:21:17,693 p=9894 u=ziad n=ansible INFO| TASK [ping] ********************************************************************************************************************************************************************
+2025-11-16 17:21:21,887 p=9894 u=ziad n=ansible WARNING| [WARNING]: Host 'jenkins' is using the discovered Python interpreter at '/usr/bin/python3.8', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.19/reference_appendices/interpreter_discovery.html for more information.
+
+2025-11-16 17:21:21,887 p=9894 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:21:21,889 p=9894 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:21:21,889 p=9894 u=ziad n=ansible INFO| jenkins                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-11-16 17:21:33,210 p=9909 u=ziad n=ansible INFO| Using /home/ziad/CloudDevOpsProject/ansible/ansible.cfg as config file
+2025-11-16 17:21:33,374 p=9909 u=ziad n=ansible INFO| Using inventory plugin 'ansible_collections.amazon.aws.plugins.inventory.aws_ec2' to process inventory source '/home/ziad/CloudDevOpsProject/ansible/inventory/aws_ec2.yaml'
+2025-11-16 17:21:33,423 p=9909 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:21:34,693 p=9909 u=ziad n=ansible INFO| PLAY [Configure Jenkins Server] ************************************************************************************************************************************************
+2025-11-16 17:21:34,714 p=9909 u=ziad n=ansible WARNING| [WARNING]: Found variable using reserved name 'tags'.
+Origin: <unknown>
+
+tags
+
+
+2025-11-16 17:21:34,715 p=9909 u=ziad n=ansible INFO| TASK [Gathering Facts] *********************************************************************************************************************************************************
+2025-11-16 17:21:37,579 p=9909 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:21:37,584 p=9909 u=ziad n=ansible INFO| TASK [Display target hosts] ****************************************************************************************************************************************************
+2025-11-16 17:21:37,603 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => 
+  msg: Configuring jenkins (3.80.249.253)
+2025-11-16 17:21:37,609 p=9909 u=ziad n=ansible INFO| TASK [Wait for system to be ready] *********************************************************************************************************************************************
+2025-11-16 17:21:45,594 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  elapsed: 7
+2025-11-16 17:21:45,599 p=9909 u=ziad n=ansible INFO| TASK [Gather facts] ************************************************************************************************************************************************************
+2025-11-16 17:21:48,002 p=9909 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:21:48,007 p=9909 u=ziad n=ansible INFO| TASK [Detect package manager type] *********************************************************************************************************************************************
+2025-11-16 17:21:48,486 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  rc: 0
+  stderr: |-
+    Shared connection to 3.80.249.253 closed.
+  stderr_lines: <omitted>
+  stdout: |-
+    yum
+  stdout_lines: <omitted>
+2025-11-16 17:21:48,490 p=9909 u=ziad n=ansible INFO| TASK [Set global package manager facts] ****************************************************************************************************************************************
+2025-11-16 17:21:48,513 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  ansible_facts:
+    dnf_backend: dnf4
+    use_dnf: false
+    use_dnf4: false
+    use_dnf5: false
+2025-11-16 17:21:48,520 p=9909 u=ziad n=ansible INFO| TASK [common : Update all packages (dnf)] **************************************************************************************************************************************
+2025-11-16 17:21:48,538 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: use_dnf | default(false) | bool
+  skip_reason: Conditional result was False
+2025-11-16 17:21:48,542 p=9909 u=ziad n=ansible INFO| TASK [common : Update all packages (yum)] **************************************************************************************************************************************
+2025-11-16 17:21:51,966 p=9909 u=ziad n=ansible INFO| changed: [jenkins] => changed=true 
+  cmd: yum update -y
+  delta: '0:00:01.868378'
+  end: '2025-11-16 15:21:51.862228'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:21:49.993850'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    No packages marked for update
+  stdout_lines: <omitted>
+2025-11-16 17:21:51,970 p=9909 u=ziad n=ansible INFO| TASK [common : Install useful system packages (dnf)] ***************************************************************************************************************************
+2025-11-16 17:21:52,033 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: use_dnf | default(false) | bool
+  skip_reason: Conditional result was False
+2025-11-16 17:21:52,037 p=9909 u=ziad n=ansible INFO| TASK [common : Install useful system packages (yum)] ***************************************************************************************************************************
+2025-11-16 17:21:59,591 p=9909 u=ziad n=ansible INFO| changed: [jenkins] => changed=true 
+  cmd: yum install -y wget curl vim unzip tar net-tools yum-utils device-mapper-persistent-data lvm2
+  delta: '0:00:06.154316'
+  end: '2025-11-16 15:21:59.371452'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:21:53.217136'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    Package wget-1.14-18.amzn2.1.x86_64 already installed and latest version
+    Package curl-8.3.0-1.amzn2.0.10.x86_64 already installed and latest version
+    Package 2:vim-enhanced-9.0.2153-1.amzn2.0.4.x86_64 already installed and latest version
+    Package unzip-6.0-57.amzn2.0.1.x86_64 already installed and latest version
+    Package 2:tar-1.26-35.amzn2.0.4.x86_64 already installed and latest version
+    Package net-tools-2.0-0.22.20131004git.amzn2.0.3.x86_64 already installed and latest version
+    Package yum-utils-1.1.31-46.amzn2.0.1.noarch already installed and latest version
+    Package device-mapper-persistent-data-0.7.3-3.amzn2.x86_64 already installed and latest version
+    Package 7:lvm2-2.02.187-6.amzn2.5.x86_64 already installed and latest version
+    Nothing to do
+  stdout_lines: <omitted>
+2025-11-16 17:21:59,633 p=9909 u=ziad n=ansible INFO| TASK [common : Set timezone] ***************************************************************************************************************************************************
+2025-11-16 17:22:01,223 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false
+2025-11-16 17:22:01,228 p=9909 u=ziad n=ansible INFO| TASK [common : Disable SELinux (if configured)] ********************************************************************************************************************************
+2025-11-16 17:22:01,251 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: disable_selinux | bool
+  skip_reason: Conditional result was False
+2025-11-16 17:22:01,255 p=9909 u=ziad n=ansible INFO| TASK [common : Create admin users home directories] ****************************************************************************************************************************
+2025-11-16 17:22:02,934 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item=ec2-user) => changed=false 
+  ansible_loop_var: item
+  gid: 1000
+  group: ec2-user
+  item: ec2-user
+  mode: '0755'
+  owner: ec2-user
+  path: /home/ec2-user
+  size: 178
+  state: directory
+  uid: 1000
+2025-11-16 17:22:04,400 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item=jenkins) => changed=false 
+  ansible_loop_var: item
+  gid: 0
+  group: root
+  item: jenkins
+  mode: '0755'
+  owner: root
+  path: /home/jenkins
+  size: 6
+  state: directory
+  uid: 0
+2025-11-16 17:22:04,407 p=9909 u=ziad n=ansible INFO| TASK [common : Ensure SSH directory exists] ************************************************************************************************************************************
+2025-11-16 17:22:05,745 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  gid: 1000
+  group: ec2-user
+  mode: '0700'
+  owner: ec2-user
+  path: /home/ec2-user/.ssh
+  size: 29
+  state: directory
+  uid: 1000
+2025-11-16 17:22:05,752 p=9909 u=ziad n=ansible INFO| TASK [java : Check available Java versions] ************************************************************************************************************************************
+2025-11-16 17:22:09,208 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  cmd: yum list available | grep -i openjdk | head -10
+  delta: '0:00:02.074685'
+  end: '2025-11-16 15:22:09.067792'
+  failed_when_result: false
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:22:06.993107'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    java-1.7.0-openjdk.x86_64                1:1.7.0.321-2.6.28.2.amzn2.0.3
+    java-1.7.0-openjdk-accessibility.x86_64  1:1.7.0.321-2.6.28.2.amzn2.0.3
+    java-1.7.0-openjdk-demo.x86_64           1:1.7.0.321-2.6.28.2.amzn2.0.3
+    java-1.7.0-openjdk-devel.x86_64          1:1.7.0.321-2.6.28.2.amzn2.0.3
+    java-1.7.0-openjdk-headless.x86_64       1:1.7.0.321-2.6.28.2.amzn2.0.3
+    java-1.7.0-openjdk-javadoc.noarch        1:1.7.0.321-2.6.28.2.amzn2.0.3
+    java-1.7.0-openjdk-src.x86_64            1:1.7.0.321-2.6.28.2.amzn2.0.3
+    java-1.8.0-openjdk.x86_64                1:1.8.0.472.b08-1.amzn2.0.1  amzn2-core
+    java-1.8.0-openjdk-accessibility.x86_64  1:1.8.0.472.b08-1.amzn2.0.1  amzn2-core
+    java-1.8.0-openjdk-accessibility-debug.x86_64
+  stdout_lines: <omitted>
+2025-11-16 17:22:09,213 p=9909 u=ziad n=ansible INFO| TASK [java : Install Java OpenJDK 17 (dnf)] ************************************************************************************************************************************
+2025-11-16 17:22:09,234 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: use_dnf | default(false) | bool
+  skip_reason: Conditional result was False
+2025-11-16 17:22:09,239 p=9909 u=ziad n=ansible INFO| TASK [java : Install Java OpenJDK 11 (dnf) - fallback] *************************************************************************************************************************
+2025-11-16 17:22:09,259 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: use_dnf | default(false) | bool
+  skip_reason: Conditional result was False
+2025-11-16 17:22:09,263 p=9909 u=ziad n=ansible INFO| TASK [java : Install Java OpenJDK 17 (yum)] ************************************************************************************************************************************
+2025-11-16 17:22:09,284 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: '''java-17-openjdk-devel'' in available_java.stdout'
+  skip_reason: Conditional result was False
+2025-11-16 17:22:09,289 p=9909 u=ziad n=ansible INFO| TASK [java : Install Java OpenJDK 11 (yum) - fallback for Amazon Linux 2] ******************************************************************************************************
+2025-11-16 17:22:13,185 p=9909 u=ziad n=ansible INFO| changed: [jenkins] => changed=true 
+  cmd: yum install -y java-11-openjdk-devel
+  delta: '0:00:02.298584'
+  end: '2025-11-16 15:22:13.092081'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:22:10.793497'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    Package 1:java-11-openjdk-devel-11.0.25.0.9-1.amzn2.0.2.x86_64 already installed and latest version
+    Nothing to do
+  stdout_lines: <omitted>
+2025-11-16 17:22:13,190 p=9909 u=ziad n=ansible INFO| TASK [java : Set JAVA_HOME environment variable] *******************************************************************************************************************************
+2025-11-16 17:22:14,592 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  backup: ''
+  msg: ''
+2025-11-16 17:22:14,598 p=9909 u=ziad n=ansible INFO| TASK [java : Verify Java installation] *****************************************************************************************************************************************
+2025-11-16 17:22:16,017 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  cmd:
+  - java
+  - -version
+  delta: '0:00:00.034795'
+  end: '2025-11-16 15:22:15.923847'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:22:15.889052'
+  stderr: |-
+    openjdk version "17.0.17" 2025-10-21 LTS
+    OpenJDK Runtime Environment Corretto-17.0.17.10.1 (build 17.0.17+10-LTS)
+    OpenJDK 64-Bit Server VM Corretto-17.0.17.10.1 (build 17.0.17+10-LTS, mixed mode, sharing)
+  stderr_lines: <omitted>
+  stdout: ''
+  stdout_lines: <omitted>
+2025-11-16 17:22:16,022 p=9909 u=ziad n=ansible INFO| TASK [java : Display installed Java version] ***********************************************************************************************************************************
+2025-11-16 17:22:16,042 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => 
+  msg:
+  - openjdk version "17.0.17" 2025-10-21 LTS
+  - OpenJDK Runtime Environment Corretto-17.0.17.10.1 (build 17.0.17+10-LTS)
+  - OpenJDK 64-Bit Server VM Corretto-17.0.17.10.1 (build 17.0.17+10-LTS, mixed mode, sharing)
+2025-11-16 17:22:16,051 p=9909 u=ziad n=ansible INFO| TASK [git : Install Git (dnf)] *************************************************************************************************************************************************
+2025-11-16 17:22:16,071 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: use_dnf | default(false) | bool
+  skip_reason: Conditional result was False
+2025-11-16 17:22:16,078 p=9909 u=ziad n=ansible INFO| TASK [git : Install Git (yum)] *************************************************************************************************************************************************
+2025-11-16 17:22:19,749 p=9909 u=ziad n=ansible INFO| changed: [jenkins] => changed=true 
+  cmd: yum install -y git
+  delta: '0:00:02.301598'
+  end: '2025-11-16 15:22:19.544873'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:22:17.243275'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    Package git-2.47.3-1.amzn2.0.1.x86_64 already installed and latest version
+    Nothing to do
+  stdout_lines: <omitted>
+2025-11-16 17:22:19,754 p=9909 u=ziad n=ansible INFO| TASK [git : Configure Git global settings for ec2-user] ************************************************************************************************************************
+2025-11-16 17:22:21,469 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item={'name': 'user.name', 'value': 'Jenkins CI'}) => changed=false 
+  ansible_loop_var: item
+  item:
+    name: user.name
+    value: Jenkins CI
+  msg: ''
+2025-11-16 17:22:22,713 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item={'name': 'user.email', 'value': 'jenkins@clouddevops.local'}) => changed=false 
+  ansible_loop_var: item
+  item:
+    name: user.email
+    value: jenkins@clouddevops.local
+  msg: ''
+2025-11-16 17:22:24,073 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item={'name': 'core.editor', 'value': 'vim'}) => changed=false 
+  ansible_loop_var: item
+  item:
+    name: core.editor
+    value: vim
+  msg: ''
+2025-11-16 17:22:25,574 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item={'name': 'pull.rebase', 'value': 'false'}) => changed=false 
+  ansible_loop_var: item
+  item:
+    name: pull.rebase
+    value: 'false'
+  msg: ''
+2025-11-16 17:22:25,579 p=9909 u=ziad n=ansible INFO| TASK [git : Configure Git global settings for jenkins user] ********************************************************************************************************************
+2025-11-16 17:22:26,987 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item={'name': 'user.name', 'value': 'Jenkins CI'}) => changed=false 
+  ansible_loop_var: item
+  item:
+    name: user.name
+    value: Jenkins CI
+  msg: ''
+2025-11-16 17:22:28,327 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item={'name': 'user.email', 'value': 'jenkins@clouddevops.local'}) => changed=false 
+  ansible_loop_var: item
+  item:
+    name: user.email
+    value: jenkins@clouddevops.local
+  msg: ''
+2025-11-16 17:22:29,882 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item={'name': 'core.editor', 'value': 'vim'}) => changed=false 
+  ansible_loop_var: item
+  item:
+    name: core.editor
+    value: vim
+  msg: ''
+2025-11-16 17:22:31,345 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item={'name': 'pull.rebase', 'value': 'false'}) => changed=false 
+  ansible_loop_var: item
+  item:
+    name: pull.rebase
+    value: 'false'
+  msg: ''
+2025-11-16 17:22:31,351 p=9909 u=ziad n=ansible INFO| TASK [git : Verify Git installation] *******************************************************************************************************************************************
+2025-11-16 17:22:32,813 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  cmd:
+  - git
+  - --version
+  delta: '0:00:00.003503'
+  end: '2025-11-16 15:22:32.710409'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:22:32.706906'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: git version 2.47.3
+  stdout_lines: <omitted>
+2025-11-16 17:22:32,818 p=9909 u=ziad n=ansible INFO| TASK [git : Display Git version] ***********************************************************************************************************************************************
+2025-11-16 17:22:32,838 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => 
+  git_version_output.stdout: git version 2.47.3
+2025-11-16 17:22:32,846 p=9909 u=ziad n=ansible INFO| TASK [docker : Install Docker dependencies (dnf)] ******************************************************************************************************************************
+2025-11-16 17:22:32,867 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: use_dnf | default(false) | bool
+  skip_reason: Conditional result was False
+2025-11-16 17:22:32,872 p=9909 u=ziad n=ansible INFO| TASK [docker : Install Docker dependencies (yum)] ******************************************************************************************************************************
+2025-11-16 17:22:37,465 p=9909 u=ziad n=ansible INFO| changed: [jenkins] => changed=true 
+  cmd: yum install -y yum-utils device-mapper-persistent-data lvm2
+  delta: '0:00:03.285112'
+  end: '2025-11-16 15:22:37.333873'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:22:34.048761'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    Package yum-utils-1.1.31-46.amzn2.0.1.noarch already installed and latest version
+    Package device-mapper-persistent-data-0.7.3-3.amzn2.x86_64 already installed and latest version
+    Package 7:lvm2-2.02.187-6.amzn2.5.x86_64 already installed and latest version
+    Nothing to do
+  stdout_lines: <omitted>
+2025-11-16 17:22:37,469 p=9909 u=ziad n=ansible INFO| TASK [docker : Start and enable Docker service] ********************************************************************************************************************************
+2025-11-16 17:22:39,569 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  enabled: true
+  name: docker
+  state: started
+  status:
+    ActiveEnterTimestamp: Sun 2025-11-16 15:17:29 UTC
+    ActiveEnterTimestampMonotonic: '8106306'
+    ActiveExitTimestampMonotonic: '0'
+    ActiveState: active
+    After: containerd.service network-online.target docker.socket systemd-journald.socket time-set.target firewalld.service system.slice basic.target
+    AllowIsolate: 'no'
+    AmbientCapabilities: '0'
+    AssertResult: 'yes'
+    AssertTimestamp: Sun 2025-11-16 15:17:27 UTC
+    AssertTimestampMonotonic: '5922239'
+    Before: shutdown.target multi-user.target
+    BlockIOAccounting: 'no'
+    BlockIOWeight: '18446744073709551615'
+    CPUAccounting: 'no'
+    CPUQuotaPerSecUSec: infinity
+    CPUSchedulingPolicy: '0'
+    CPUSchedulingPriority: '0'
+    CPUSchedulingResetOnFork: 'no'
+    CPUShares: '18446744073709551615'
+    CanIsolate: 'no'
+    CanReload: 'yes'
+    CanStart: 'yes'
+    CanStop: 'yes'
+    CapabilityBoundingSet: '18446744073709551615'
+    CollectMode: inactive
+    ConditionResult: 'yes'
+    ConditionTimestamp: Sun 2025-11-16 15:17:27 UTC
+    ConditionTimestampMonotonic: '5922239'
+    Conflicts: shutdown.target
+    ControlGroup: /system.slice/docker.service
+    ControlPID: '0'
+    DefaultDependencies: 'yes'
+    Delegate: 'yes'
+    Description: Docker Application Container Engine
+    DevicePolicy: auto
+    Documentation: https://docs.docker.com
+    EnvironmentFile: /run/docker/runtimes.env (ignore_errors=yes)
+    ExecMainCode: '0'
+    ExecMainExitTimestampMonotonic: '0'
+    ExecMainPID: '3547'
+    ExecMainStartTimestamp: Sun 2025-11-16 15:17:27 UTC
+    ExecMainStartTimestampMonotonic: '5996902'
+    ExecMainStatus: '0'
+    ExecReload: '{ path=/bin/kill ; argv[]=/bin/kill -s HUP $MAINPID ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }'
+    ExecStart: '{ path=/usr/bin/dockerd ; argv[]=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock $OPTIONS $DOCKER_STORAGE_OPTIONS $DOCKER_ADD_RUNTIMES ; ignore_errors=no ; start_time=[Sun 2025-11-16 15:17:27 UTC] ; stop_time=[n/a] ; pid=3547 ; code=(null) ; status=0/0 }'
+    ExecStartPre: '{ path=/usr/libexec/docker/docker-setup-runtimes.sh ; argv[]=/usr/libexec/docker/docker-setup-runtimes.sh ; ignore_errors=no ; start_time=[Sun 2025-11-16 15:17:27 UTC] ; stop_time=[Sun 2025-11-16 15:17:27 UTC] ; pid=3534 ; code=exited ; status=0 }'
+    FailureAction: none
+    FileDescriptorStoreMax: '0'
+    FragmentPath: /usr/lib/systemd/system/docker.service
+    GuessMainPID: 'yes'
+    IOScheduling: '0'
+    Id: docker.service
+    IgnoreOnIsolate: 'no'
+    IgnoreOnSnapshot: 'no'
+    IgnoreSIGPIPE: 'yes'
+    InactiveEnterTimestampMonotonic: '0'
+    InactiveExitTimestamp: Sun 2025-11-16 15:17:27 UTC
+    InactiveExitTimestampMonotonic: '5924797'
+    JobTimeoutAction: none
+    JobTimeoutUSec: '0'
+    KillMode: process
+    KillSignal: '15'
+    LimitAS: '18446744073709551615'
+    LimitCORE: '18446744073709551615'
+    LimitCPU: '18446744073709551615'
+    LimitDATA: '18446744073709551615'
+    LimitFSIZE: '18446744073709551615'
+    LimitLOCKS: '18446744073709551615'
+    LimitMEMLOCK: '18446744073709551615'
+    LimitMSGQUEUE: '819200'
+    LimitNICE: '0'
+    LimitNOFILE: '18446744073709551615'
+    LimitNPROC: '18446744073709551615'
+    LimitRSS: '18446744073709551615'
+    LimitRTPRIO: '0'
+    LimitRTTIME: '18446744073709551615'
+    LimitSIGPENDING: '30446'
+    LimitSTACK: '10485760'
+    LoadState: loaded
+    MainPID: '3547'
+    MemoryAccounting: 'no'
+    MemoryCurrent: '105472000'
+    MemoryLimit: '18446744073709551615'
+    MountFlags: '0'
+    Names: docker.service
+    NeedDaemonReload: 'no'
+    Nice: '0'
+    NoNewPrivileges: 'no'
+    NonBlocking: 'no'
+    NotifyAccess: main
+    OOMScoreAdjust: '-500'
+    OnFailureJobMode: replace
+    PermissionsStartOnly: 'no'
+    PrivateDevices: 'no'
+    PrivateNetwork: 'no'
+    PrivateTmp: 'no'
+    ProtectHome: 'no'
+    ProtectSystem: 'no'
+    RefuseManualStart: 'no'
+    RefuseManualStop: 'no'
+    RemainAfterExit: 'no'
+    Requires: basic.target docker.socket system.slice
+    Restart: always
+    RestartUSec: 2s
+    Result: success
+    RootDirectoryStartOnly: 'no'
+    RuntimeDirectoryMode: '0755'
+    SameProcessGroup: 'no'
+    SecureBits: '0'
+    SendSIGHUP: 'no'
+    SendSIGKILL: 'yes'
+    Slice: system.slice
+    StandardError: inherit
+    StandardInput: 'null'
+    StandardOutput: journal
+    StartLimitAction: none
+    StartLimitBurst: '3'
+    StartLimitInterval: '60000000'
+    StartupBlockIOWeight: '18446744073709551615'
+    StartupCPUShares: '18446744073709551615'
+    StatusErrno: '0'
+    StopWhenUnneeded: 'no'
+    SubState: running
+    SyslogLevelPrefix: 'yes'
+    SyslogPriority: '30'
+    SystemCallErrorNumber: '0'
+    TTYReset: 'no'
+    TTYVHangup: 'no'
+    TTYVTDisallocate: 'no'
+    TasksAccounting: 'no'
+    TasksCurrent: '8'
+    TasksMax: '18446744073709551615'
+    TimeoutStartUSec: '0'
+    TimeoutStopUSec: 1min 30s
+    TimerSlackNSec: '50000'
+    Transient: 'no'
+    TriggeredBy: docker.socket
+    Type: notify
+    UMask: '0022'
+    UnitFilePreset: disabled
+    UnitFileState: enabled
+    WantedBy: multi-user.target
+    Wants: network-online.target containerd.service
+    WatchdogTimestamp: Sun 2025-11-16 15:17:29 UTC
+    WatchdogTimestampMonotonic: '8106233'
+    WatchdogUSec: '0'
+2025-11-16 17:22:39,575 p=9909 u=ziad n=ansible INFO| TASK [docker : Add users to docker group] **************************************************************************************************************************************
+2025-11-16 17:22:41,607 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item=ec2-user) => changed=false 
+  ansible_loop_var: item
+  append: true
+  comment: EC2 Default User
+  group: 1000
+  groups: docker
+  home: /home/ec2-user
+  item: ec2-user
+  move_home: false
+  name: ec2-user
+  shell: /bin/bash
+  state: present
+  uid: 1000
+2025-11-16 17:22:43,156 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => (item=jenkins) => changed=false 
+  ansible_loop_var: item
+  append: true
+  comment: Jenkins Automation Server
+  group: 993
+  groups: docker
+  home: /var/lib/jenkins
+  item: jenkins
+  move_home: false
+  name: jenkins
+  shell: /bin/bash
+  state: present
+  uid: 995
+2025-11-16 17:22:43,163 p=9909 u=ziad n=ansible INFO| TASK [docker : Install Docker Compose] *****************************************************************************************************************************************
+2025-11-16 17:22:44,822 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  dest: /usr/local/bin/docker-compose
+  elapsed: 0
+  gid: 0
+  group: root
+  mode: '0755'
+  msg: 'HTTP Error 304: Not Modified'
+  owner: root
+  size: 59628532
+  state: file
+  status_code: 304
+  uid: 0
+  url: https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-linux-x86_64
+2025-11-16 17:22:44,827 p=9909 u=ziad n=ansible INFO| TASK [docker : Create Docker Compose symlink] **********************************************************************************************************************************
+2025-11-16 17:22:46,188 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  dest: /usr/bin/docker-compose
+  gid: 0
+  group: root
+  mode: '0777'
+  owner: root
+  size: 29
+  src: /usr/local/bin/docker-compose
+  state: link
+  uid: 0
+2025-11-16 17:22:46,193 p=9909 u=ziad n=ansible INFO| TASK [docker : Configure Docker daemon] ****************************************************************************************************************************************
+2025-11-16 17:22:50,280 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  checksum: 96fb125694609cee6b1e4bcad3532db75f4a5874
+  dest: /etc/docker/daemon.json
+  gid: 0
+  group: root
+  mode: '0644'
+  owner: root
+  path: /etc/docker/daemon.json
+  size: 128
+  state: file
+  uid: 0
+2025-11-16 17:22:50,285 p=9909 u=ziad n=ansible INFO| TASK [docker : Ensure Docker is running] ***************************************************************************************************************************************
+2025-11-16 17:22:52,457 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  name: docker
+  state: started
+  status:
+    ActiveEnterTimestamp: Sun 2025-11-16 15:17:29 UTC
+    ActiveEnterTimestampMonotonic: '8106306'
+    ActiveExitTimestampMonotonic: '0'
+    ActiveState: active
+    After: containerd.service network-online.target docker.socket systemd-journald.socket time-set.target firewalld.service system.slice basic.target
+    AllowIsolate: 'no'
+    AmbientCapabilities: '0'
+    AssertResult: 'yes'
+    AssertTimestamp: Sun 2025-11-16 15:17:27 UTC
+    AssertTimestampMonotonic: '5922239'
+    Before: shutdown.target multi-user.target
+    BlockIOAccounting: 'no'
+    BlockIOWeight: '18446744073709551615'
+    CPUAccounting: 'no'
+    CPUQuotaPerSecUSec: infinity
+    CPUSchedulingPolicy: '0'
+    CPUSchedulingPriority: '0'
+    CPUSchedulingResetOnFork: 'no'
+    CPUShares: '18446744073709551615'
+    CanIsolate: 'no'
+    CanReload: 'yes'
+    CanStart: 'yes'
+    CanStop: 'yes'
+    CapabilityBoundingSet: '18446744073709551615'
+    CollectMode: inactive
+    ConditionResult: 'yes'
+    ConditionTimestamp: Sun 2025-11-16 15:17:27 UTC
+    ConditionTimestampMonotonic: '5922239'
+    Conflicts: shutdown.target
+    ControlGroup: /system.slice/docker.service
+    ControlPID: '0'
+    DefaultDependencies: 'yes'
+    Delegate: 'yes'
+    Description: Docker Application Container Engine
+    DevicePolicy: auto
+    Documentation: https://docs.docker.com
+    EnvironmentFile: /run/docker/runtimes.env (ignore_errors=yes)
+    ExecMainCode: '0'
+    ExecMainExitTimestampMonotonic: '0'
+    ExecMainPID: '3547'
+    ExecMainStartTimestamp: Sun 2025-11-16 15:17:27 UTC
+    ExecMainStartTimestampMonotonic: '5996902'
+    ExecMainStatus: '0'
+    ExecReload: '{ path=/bin/kill ; argv[]=/bin/kill -s HUP $MAINPID ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }'
+    ExecStart: '{ path=/usr/bin/dockerd ; argv[]=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock $OPTIONS $DOCKER_STORAGE_OPTIONS $DOCKER_ADD_RUNTIMES ; ignore_errors=no ; start_time=[Sun 2025-11-16 15:17:27 UTC] ; stop_time=[n/a] ; pid=3547 ; code=(null) ; status=0/0 }'
+    ExecStartPre: '{ path=/usr/libexec/docker/docker-setup-runtimes.sh ; argv[]=/usr/libexec/docker/docker-setup-runtimes.sh ; ignore_errors=no ; start_time=[Sun 2025-11-16 15:17:27 UTC] ; stop_time=[Sun 2025-11-16 15:17:27 UTC] ; pid=3534 ; code=exited ; status=0 }'
+    FailureAction: none
+    FileDescriptorStoreMax: '0'
+    FragmentPath: /usr/lib/systemd/system/docker.service
+    GuessMainPID: 'yes'
+    IOScheduling: '0'
+    Id: docker.service
+    IgnoreOnIsolate: 'no'
+    IgnoreOnSnapshot: 'no'
+    IgnoreSIGPIPE: 'yes'
+    InactiveEnterTimestampMonotonic: '0'
+    InactiveExitTimestamp: Sun 2025-11-16 15:17:27 UTC
+    InactiveExitTimestampMonotonic: '5924797'
+    JobTimeoutAction: none
+    JobTimeoutUSec: '0'
+    KillMode: process
+    KillSignal: '15'
+    LimitAS: '18446744073709551615'
+    LimitCORE: '18446744073709551615'
+    LimitCPU: '18446744073709551615'
+    LimitDATA: '18446744073709551615'
+    LimitFSIZE: '18446744073709551615'
+    LimitLOCKS: '18446744073709551615'
+    LimitMEMLOCK: '18446744073709551615'
+    LimitMSGQUEUE: '819200'
+    LimitNICE: '0'
+    LimitNOFILE: '18446744073709551615'
+    LimitNPROC: '18446744073709551615'
+    LimitRSS: '18446744073709551615'
+    LimitRTPRIO: '0'
+    LimitRTTIME: '18446744073709551615'
+    LimitSIGPENDING: '30446'
+    LimitSTACK: '10485760'
+    LoadState: loaded
+    MainPID: '3547'
+    MemoryAccounting: 'no'
+    MemoryCurrent: '105472000'
+    MemoryLimit: '18446744073709551615'
+    MountFlags: '0'
+    Names: docker.service
+    NeedDaemonReload: 'no'
+    Nice: '0'
+    NoNewPrivileges: 'no'
+    NonBlocking: 'no'
+    NotifyAccess: main
+    OOMScoreAdjust: '-500'
+    OnFailureJobMode: replace
+    PermissionsStartOnly: 'no'
+    PrivateDevices: 'no'
+    PrivateNetwork: 'no'
+    PrivateTmp: 'no'
+    ProtectHome: 'no'
+    ProtectSystem: 'no'
+    RefuseManualStart: 'no'
+    RefuseManualStop: 'no'
+    RemainAfterExit: 'no'
+    Requires: basic.target docker.socket system.slice
+    Restart: always
+    RestartUSec: 2s
+    Result: success
+    RootDirectoryStartOnly: 'no'
+    RuntimeDirectoryMode: '0755'
+    SameProcessGroup: 'no'
+    SecureBits: '0'
+    SendSIGHUP: 'no'
+    SendSIGKILL: 'yes'
+    Slice: system.slice
+    StandardError: inherit
+    StandardInput: 'null'
+    StandardOutput: journal
+    StartLimitAction: none
+    StartLimitBurst: '3'
+    StartLimitInterval: '60000000'
+    StartupBlockIOWeight: '18446744073709551615'
+    StartupCPUShares: '18446744073709551615'
+    StatusErrno: '0'
+    StopWhenUnneeded: 'no'
+    SubState: running
+    SyslogLevelPrefix: 'yes'
+    SyslogPriority: '30'
+    SystemCallErrorNumber: '0'
+    TTYReset: 'no'
+    TTYVHangup: 'no'
+    TTYVTDisallocate: 'no'
+    TasksAccounting: 'no'
+    TasksCurrent: '8'
+    TasksMax: '18446744073709551615'
+    TimeoutStartUSec: '0'
+    TimeoutStopUSec: 1min 30s
+    TimerSlackNSec: '50000'
+    Transient: 'no'
+    TriggeredBy: docker.socket
+    Type: notify
+    UMask: '0022'
+    UnitFilePreset: disabled
+    UnitFileState: enabled
+    WantedBy: multi-user.target
+    Wants: network-online.target containerd.service
+    WatchdogTimestamp: Sun 2025-11-16 15:17:29 UTC
+    WatchdogTimestampMonotonic: '8106233'
+    WatchdogUSec: '0'
+2025-11-16 17:22:52,462 p=9909 u=ziad n=ansible INFO| TASK [docker : Verify Docker installation] *************************************************************************************************************************************
+2025-11-16 17:22:54,034 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  cmd:
+  - docker
+  - --version
+  delta: '0:00:00.170135'
+  end: '2025-11-16 15:22:53.935344'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:22:53.765209'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: Docker version 25.0.13, build 0bab007
+  stdout_lines: <omitted>
+2025-11-16 17:22:54,043 p=9909 u=ziad n=ansible INFO| TASK [docker : Verify Docker Compose installation] *****************************************************************************************************************************
+2025-11-16 17:22:55,726 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  cmd:
+  - docker-compose
+  - --version
+  delta: '0:00:00.365593'
+  end: '2025-11-16 15:22:55.617578'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:22:55.251985'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: Docker Compose version v2.23.0
+  stdout_lines: <omitted>
+2025-11-16 17:22:55,731 p=9909 u=ziad n=ansible INFO| TASK [docker : Display Docker version] *****************************************************************************************************************************************
+2025-11-16 17:22:55,751 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => 
+  msg:
+  - 'Docker: Docker version 25.0.13, build 0bab007'
+  - 'Docker Compose: Docker Compose version v2.23.0'
+2025-11-16 17:22:55,760 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Import Jenkins GPG key] ****************************************************************************************************************************************
+2025-11-16 17:22:57,339 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false
+2025-11-16 17:22:57,344 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Add Jenkins repository] ****************************************************************************************************************************************
+2025-11-16 17:22:59,057 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  dest: /etc/yum.repos.d/jenkins.repo
+  elapsed: 0
+  gid: 0
+  group: root
+  mode: '0644'
+  msg: 'HTTP Error 304: Not Modified'
+  owner: root
+  size: 85
+  state: file
+  status_code: 304
+  uid: 0
+  url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+2025-11-16 17:22:59,062 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Install Jenkins (dnf)] *****************************************************************************************************************************************
+2025-11-16 17:22:59,082 p=9909 u=ziad n=ansible INFO| skipping: [jenkins] => changed=false 
+  false_condition: use_dnf | default(false) | bool
+  skip_reason: Conditional result was False
+2025-11-16 17:22:59,087 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Install Jenkins (yum)] *****************************************************************************************************************************************
+2025-11-16 17:23:03,205 p=9909 u=ziad n=ansible INFO| changed: [jenkins] => changed=true 
+  cmd: yum install -y jenkins
+  delta: '0:00:02.600588'
+  end: '2025-11-16 15:23:03.100473'
+  msg: ''
+  rc: 0
+  start: '2025-11-16 15:23:00.499885'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+    Package jenkins-2.528.2-1.1.noarch already installed and latest version
+    Nothing to do
+  stdout_lines: <omitted>
+2025-11-16 17:23:03,210 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Ensure Jenkins home directory exists] **************************************************************************************************************************
+2025-11-16 17:23:04,641 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  gid: 993
+  group: jenkins
+  mode: '0755'
+  owner: jenkins
+  path: /var/lib/jenkins
+  size: 4096
+  state: directory
+  uid: 995
+2025-11-16 17:23:04,647 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Configure Jenkins Java options] ********************************************************************************************************************************
+2025-11-16 17:23:05,991 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  backup: ''
+  msg: ''
+2025-11-16 17:23:05,997 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Configure Jenkins port] ****************************************************************************************************************************************
+2025-11-16 17:23:07,444 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  backup: ''
+  msg: ''
+2025-11-16 17:23:07,451 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Start and enable Jenkins service] ******************************************************************************************************************************
+2025-11-16 17:23:09,460 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  enabled: true
+  name: jenkins
+  state: started
+  status:
+    ActiveEnterTimestamp: Sun 2025-11-16 15:17:45 UTC
+    ActiveEnterTimestampMonotonic: '23916481'
+    ActiveExitTimestampMonotonic: '0'
+    ActiveState: active
+    After: network.target basic.target system.slice -.mount systemd-journald.socket
+    AllowIsolate: 'no'
+    AmbientCapabilities: '0'
+    AssertResult: 'yes'
+    AssertTimestamp: Sun 2025-11-16 15:17:25 UTC
+    AssertTimestampMonotonic: '4195947'
+    Before: shutdown.target multi-user.target
+    BlockIOAccounting: 'no'
+    BlockIOWeight: '18446744073709551615'
+    CPUAccounting: 'no'
+    CPUQuotaPerSecUSec: infinity
+    CPUSchedulingPolicy: '0'
+    CPUSchedulingPriority: '0'
+    CPUSchedulingResetOnFork: 'no'
+    CPUShares: '18446744073709551615'
+    CanIsolate: 'no'
+    CanReload: 'no'
+    CanStart: 'yes'
+    CanStop: 'yes'
+    CapabilityBoundingSet: '18446744073709551615'
+    CollectMode: inactive
+    ConditionResult: 'yes'
+    ConditionTimestamp: Sun 2025-11-16 15:17:25 UTC
+    ConditionTimestampMonotonic: '4195944'
+    Conflicts: shutdown.target
+    ControlGroup: /system.slice/jenkins.service
+    ControlPID: '0'
+    DefaultDependencies: 'yes'
+    Delegate: 'no'
+    Description: Jenkins Continuous Integration Server
+    DevicePolicy: auto
+    Environment: JENKINS_HOME=/var/lib/jenkins JENKINS_WEBROOT=%C/jenkins/war JAVA_OPTS=-Djava.awt.headless=true JENKINS_PORT=8080
+    ExecMainCode: '0'
+    ExecMainExitTimestampMonotonic: '0'
+    ExecMainPID: '3101'
+    ExecMainStartTimestamp: Sun 2025-11-16 15:17:25 UTC
+    ExecMainStartTimestampMonotonic: '4196481'
+    ExecMainStatus: '0'
+    ExecStart: '{ path=/usr/bin/jenkins ; argv[]=/usr/bin/jenkins ; ignore_errors=no ; start_time=[Sun 2025-11-16 15:17:25 UTC] ; stop_time=[n/a] ; pid=3101 ; code=(null) ; status=0/0 }'
+    FailureAction: none
+    FileDescriptorStoreMax: '0'
+    FragmentPath: /usr/lib/systemd/system/jenkins.service
+    Group: jenkins
+    GuessMainPID: 'yes'
+    IOScheduling: '0'
+    Id: jenkins.service
+    IgnoreOnIsolate: 'no'
+    IgnoreOnSnapshot: 'no'
+    IgnoreSIGPIPE: 'yes'
+    InactiveEnterTimestampMonotonic: '0'
+    InactiveExitTimestamp: Sun 2025-11-16 15:17:25 UTC
+    InactiveExitTimestampMonotonic: '4196519'
+    JobTimeoutAction: none
+    JobTimeoutUSec: '0'
+    KillMode: control-group
+    KillSignal: '15'
+    LimitAS: '18446744073709551615'
+    LimitCORE: '18446744073709551615'
+    LimitCPU: '18446744073709551615'
+    LimitDATA: '18446744073709551615'
+    LimitFSIZE: '18446744073709551615'
+    LimitLOCKS: '18446744073709551615'
+    LimitMEMLOCK: '18446744073709551615'
+    LimitMSGQUEUE: '819200'
+    LimitNICE: '0'
+    LimitNOFILE: '65535'
+    LimitNPROC: '18446744073709551615'
+    LimitRSS: '18446744073709551615'
+    LimitRTPRIO: '0'
+    LimitRTTIME: '18446744073709551615'
+    LimitSIGPENDING: '30446'
+    LimitSTACK: '10485760'
+    LoadState: loaded
+    MainPID: '3101'
+    MemoryAccounting: 'no'
+    MemoryCurrent: '600875008'
+    MemoryLimit: '18446744073709551615'
+    MountFlags: '0'
+    Names: jenkins.service
+    NeedDaemonReload: 'no'
+    Nice: '0'
+    NoNewPrivileges: 'no'
+    NonBlocking: 'no'
+    NotifyAccess: main
+    OOMScoreAdjust: '0'
+    OnFailureJobMode: replace
+    PermissionsStartOnly: 'no'
+    PrivateDevices: 'no'
+    PrivateNetwork: 'no'
+    PrivateTmp: 'no'
+    ProtectHome: 'no'
+    ProtectSystem: 'no'
+    RefuseManualStart: 'no'
+    RefuseManualStop: 'no'
+    RemainAfterExit: 'no'
+    Requires: -.mount basic.target network.target system.slice
+    RequiresMountsFor: /var/lib/jenkins
+    Restart: on-failure
+    RestartUSec: 100ms
+    Result: success
+    RootDirectoryStartOnly: 'no'
+    RuntimeDirectoryMode: '0755'
+    SameProcessGroup: 'no'
+    SecureBits: '0'
+    SendSIGHUP: 'no'
+    SendSIGKILL: 'yes'
+    Slice: system.slice
+    StandardError: inherit
+    StandardInput: 'null'
+    StandardOutput: journal
+    StartLimitAction: none
+    StartLimitBurst: '5'
+    StartLimitInterval: '10000000'
+    StartupBlockIOWeight: '18446744073709551615'
+    StartupCPUShares: '18446744073709551615'
+    StatusErrno: '0'
+    StopWhenUnneeded: 'no'
+    SubState: running
+    SyslogLevelPrefix: 'yes'
+    SyslogPriority: '30'
+    SystemCallErrorNumber: '0'
+    TTYReset: 'no'
+    TTYVHangup: 'no'
+    TTYVTDisallocate: 'no'
+    TasksAccounting: 'no'
+    TasksCurrent: '46'
+    TasksMax: '18446744073709551615'
+    TimeoutStartUSec: 1min 30s
+    TimeoutStopUSec: 1min 30s
+    TimerSlackNSec: '50000'
+    Transient: 'no'
+    Type: notify
+    UMask: '0022'
+    UnitFilePreset: disabled
+    UnitFileState: enabled
+    User: jenkins
+    WantedBy: multi-user.target
+    WatchdogTimestamp: Sun 2025-11-16 15:17:45 UTC
+    WatchdogTimestampMonotonic: '23916434'
+    WatchdogUSec: '0'
+    WorkingDirectory: /var/lib/jenkins
+2025-11-16 17:23:09,466 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Wait for Jenkins to start] *************************************************************************************************************************************
+2025-11-16 17:23:20,967 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  elapsed: 10
+  match_groupdict: {}
+  match_groups: []
+  path: null
+  port: 8080
+  search_regex: null
+  state: started
+2025-11-16 17:23:20,972 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Wait for Jenkins to be ready (check initialAdminPassword)] *****************************************************************************************************
+2025-11-16 17:23:22,317 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  elapsed: 0
+  gid: 993
+  group: jenkins
+  match_groupdict: {}
+  match_groups: []
+  mode: '0640'
+  owner: jenkins
+  path: /var/lib/jenkins/secrets/initialAdminPassword
+  port: null
+  search_regex: null
+  size: 33
+  state: file
+  uid: 995
+2025-11-16 17:23:22,322 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Get Jenkins initial admin password] ****************************************************************************************************************************
+2025-11-16 17:23:23,663 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  content: N2NkODJmZTY4YjFlNDZjMjg5NTlmZTExN2QzNmE3NGEK
+  encoding: base64
+  source: /var/lib/jenkins/secrets/initialAdminPassword
+2025-11-16 17:23:23,673 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Display Jenkins initial admin password] ************************************************************************************************************************
+2025-11-16 17:23:23,708 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => 
+  msg: |-
+    Jenkins Initial Admin Password: 7cd82fe68b1e46c28959fe117d36a74a
+2025-11-16 17:23:23,715 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Create Jenkins info file] **************************************************************************************************************************************
+2025-11-16 17:23:29,543 p=9909 u=ziad n=ansible INFO| changed: [jenkins] => changed=true 
+  checksum: 07fad70eb818fe7668f318d42a510b077dab0c29
+  dest: /home/ec2-user/jenkins-info.txt
+  gid: 1000
+  group: ec2-user
+  md5sum: a26524fddcee21eacde86ae6c4b24505
+  mode: '0644'
+  owner: ec2-user
+  size: 656
+  src: /tmp/.ansible-ec2-user/tmp/ansible-tmp-1763306603.7322543-10047-162573226645464/.source.txt
+  state: file
+  uid: 1000
+2025-11-16 17:23:29,548 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Install Jenkins CLI] *******************************************************************************************************************************************
+2025-11-16 17:23:31,754 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  attempts: 1
+  dest: /var/lib/jenkins/jenkins-cli.jar
+  elapsed: 0
+  gid: 993
+  group: jenkins
+  mode: '0644'
+  msg: 'HTTP Error 304: Not Modified'
+  owner: jenkins
+  size: 12212575
+  state: file
+  status_code: 304
+  uid: 995
+  url: http://localhost:8080/jnlpJars/jenkins-cli.jar
+2025-11-16 17:23:31,759 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Verify Jenkins is running] *************************************************************************************************************************************
+2025-11-16 17:23:34,300 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => changed=false 
+  attempts: 1
+  body: |-
+    <html><head><meta http-equiv='refresh' content='1;url=/login?from=%2F'/><script id='redirect' data-redirect-url='/login?from=%2F' src='/static/63c5e2f2/scripts/redirect.js'></script></head><body style='background-color:white; color:white;'>
+    Authentication required
+    <!--
+    -->
+  
+    </body></html>
+  connection: close
+  content_type: text/html;charset=utf-8
+  date: Sun, 16 Nov 2025 15:23:33 GMT
+  elapsed: 0
+  expires: Thu, 01 Jan 1970 00:00:00 GMT
+  msg: 'HTTP Error 403: Forbidden'
+  redirected: false
+  server: Jetty(12.0.25)
+  set_cookie: JSESSIONID.5c478a05=node01g4stnxjd6hh74kuzurcozet10.node0; Path=/; HttpOnly; SameSite=Lax
+  status: 403
+  url: http://localhost:8080
+  vary: Accept-Encoding
+  x_content_type_options: nosniff
+  x_hudson: '1.395'
+  x_jenkins: 2.528.2
+  x_jenkins_session: 63c5e2f2
+2025-11-16 17:23:34,307 p=9909 u=ziad n=ansible INFO| TASK [jenkins : Display Jenkins status] ****************************************************************************************************************************************
+2025-11-16 17:23:34,331 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => 
+  msg: Jenkins is running and accessible on port 8080
+2025-11-16 17:23:34,340 p=9909 u=ziad n=ansible INFO| TASK [Display completion message] **********************************************************************************************************************************************
+2025-11-16 17:23:34,366 p=9909 u=ziad n=ansible INFO| ok: [jenkins] => 
+  msg:
+  - ==========================================
+  - Jenkins Setup Complete!
+  - ==========================================
+  - 'Jenkins URL: http://3.80.249.253:8080'
+  - 'SSH: ssh -i vockey.pem ec2-user@3.80.249.253'
+  - Check /home/ec2-user/jenkins-info.txt for details
+  - ==========================================
+2025-11-16 17:23:34,373 p=9909 u=ziad n=ansible INFO| TASK [Create summary file] *****************************************************************************************************************************************************
+2025-11-16 17:23:40,559 p=9909 u=ziad n=ansible INFO| changed: [jenkins] => changed=true 
+  checksum: 5f8912f0fb3b0e5427cacd5e300fa68cb461593d
+  dest: /home/ec2-user/ansible-summary.txt
+  gid: 1000
+  group: ec2-user
+  md5sum: de6e74b3062f05eedc9d604ba392aa79
+  mode: '0644'
+  owner: ec2-user
+  size: 480
+  src: /tmp/.ansible-ec2-user/tmp/ansible-tmp-1763306614.3955014-10064-126779967756376/.source.txt
+  state: file
+  uid: 1000
+2025-11-16 17:23:40,561 p=9909 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:23:40,561 p=9909 u=ziad n=ansible INFO| jenkins                    : ok=48   changed=8    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+2025-11-16 17:33:52,377 p=10369 u=ziad n=botocore.credentials INFO| Found credentials in shared credentials file: ~/.aws/credentials
+2025-11-16 17:33:53,551 p=10369 u=ziad n=ansible INFO| PLAY [Verify Jenkins Server Configuration] *************************************************************************************************************************************
+2025-11-16 17:33:53,561 p=10369 u=ziad n=ansible WARNING| [WARNING]: Found variable using reserved name 'tags'.
+Origin: <unknown>
+
+tags
+
+
+2025-11-16 17:33:53,562 p=10369 u=ziad n=ansible INFO| TASK [Check Java installation] *************************************************************************************************************************************************
+2025-11-16 17:33:57,186 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:33:57,190 p=10369 u=ziad n=ansible INFO| TASK [Check Git installation] **************************************************************************************************************************************************
+2025-11-16 17:33:58,673 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:33:58,678 p=10369 u=ziad n=ansible INFO| TASK [Check Docker installation] ***********************************************************************************************************************************************
+2025-11-16 17:34:00,042 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:34:00,046 p=10369 u=ziad n=ansible INFO| TASK [Check Docker service status] *********************************************************************************************************************************************
+2025-11-16 17:34:02,527 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:34:02,531 p=10369 u=ziad n=ansible INFO| TASK [Check Jenkins installation] **********************************************************************************************************************************************
+2025-11-16 17:34:03,875 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:34:03,878 p=10369 u=ziad n=ansible INFO| TASK [Check Jenkins service status] ********************************************************************************************************************************************
+2025-11-16 17:34:05,872 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:34:05,875 p=10369 u=ziad n=ansible INFO| TASK [Test Jenkins web interface] **********************************************************************************************************************************************
+2025-11-16 17:34:08,433 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:34:08,437 p=10369 u=ziad n=ansible INFO| TASK [Check if initial admin password exists] **********************************************************************************************************************************
+2025-11-16 17:34:09,837 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:34:09,841 p=10369 u=ziad n=ansible INFO| TASK [Display verification results] ********************************************************************************************************************************************
+2025-11-16 17:34:09,872 p=10369 u=ziad n=ansible INFO| ok: [jenkins] => 
+  msg:
+  - ==========================================
+  - Verification Results
+  - ==========================================
+  - 'Java: OK'
+  - 'Git: OK'
+  - 'Docker: OK'
+  - 'Docker Service: active'
+  - 'Jenkins: OK'
+  - 'Jenkins Service: active'
+  - 'Jenkins Web: OK'
+  - 'Admin Password File: EXISTS'
+  - ==========================================
+2025-11-16 17:34:09,876 p=10369 u=ziad n=ansible INFO| TASK [Get Jenkins initial password] ********************************************************************************************************************************************
+2025-11-16 17:34:11,212 p=10369 u=ziad n=ansible INFO| ok: [jenkins]
+2025-11-16 17:34:11,216 p=10369 u=ziad n=ansible INFO| TASK [Display Jenkins password] ************************************************************************************************************************************************
+2025-11-16 17:34:11,241 p=10369 u=ziad n=ansible INFO| ok: [jenkins] => 
+  msg: |-
+    Jenkins Initial Admin Password: 7cd82fe68b1e46c28959fe117d36a74a
+2025-11-16 17:34:11,242 p=10369 u=ziad n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************
+2025-11-16 17:34:11,242 p=10369 u=ziad n=ansible INFO| jenkins                    : ok=11   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

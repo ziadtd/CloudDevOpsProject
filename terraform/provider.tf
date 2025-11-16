@@ -19,3 +19,4 @@ terraform { #Version Pinning
 provider "aws" {
   region = var.aws_region
 }
+
