@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: ziadtd/flask-app:v1.0  
+        image: ziadtd/flask-app:4
         imagePullPolicy: Always
         ports:
         - name: http
