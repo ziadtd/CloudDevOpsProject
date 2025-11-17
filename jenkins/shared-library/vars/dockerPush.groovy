@@ -4,7 +4,7 @@ def call(String imageName, String imageTag, String credentialsId, String registr
     
     try {
         script {
-            docker.withRegistry("https://${registry}", credentialsId) {
+            docker.withRegistry(registry, credentialsId) {
                 def customImage = docker.image("${imageName}:${imageTag}")
                 customImage.push()
                 
