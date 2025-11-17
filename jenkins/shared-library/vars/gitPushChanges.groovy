@@ -10,10 +10,12 @@ def call(String commitMessage, String branch = 'main', String credentialsId = 'g
                 # Configure Git
                 git config user.email "jenkins@clouddevops.local"
                 git config user.name "Jenkins CI"
-                
+    
+                # Checkout branch (add this)
+                git checkout ${branch} || git checkout -b ${branch}
+    
                 # Add changes
                 git add .
-                
                 # Check if there are changes to commit
                 if git diff --staged --quiet; then
                     echo "No changes to commit"
