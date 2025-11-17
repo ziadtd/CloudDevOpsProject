@@ -1,0 +1,123 @@
+@Library('shared-library') _
+
+pipeline {
+    agent any
+    
+    environment {
+        // Docker Configuration
+        DOCKERHUB_USERNAME = 'ziadtd' 
+        IMAGE_NAME = "${DOCKERHUB_USERNAME}/flask-app"
+        IMAGE_TAG = "${BUILD_NUMBER}"
+        DOCKER_CREDENTIALS = 'dockerhub-credentials'
+        
+        // Git Configuration
+        GIT_CREDENTIALS = 'github-credentials'
+        GIT_BRANCH = 'main'
+        
+        // Kubernetes Configuration
+        K8S_MANIFEST_PATH = 'kubernetes'
+        
+        // Trivy Configuration
+        TRIVY_SEVERITY = 'CRITICAL,HIGH'
+        TRIVY_EXIT_CODE = '0'  // Don't fail build on vulnerabilities (set to 1 to fail)
+    }
+    
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        timestamps()
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds()
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    echo 'Checking out source code...'
+                    checkout scm
+                }
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    echo 'Building Docker image...'
+                    dockerBuild(IMAGE_NAME, IMAGE_TAG, './docker')
+                }
+            }
+        }
+        
+        stage('Scan Image with Trivy') {
+            steps {
+                script {
+                    echo 'Scanning Docker image for vulnerabilities...'
+                    trivyScan(IMAGE_NAME, IMAGE_TAG, TRIVY_SEVERITY, TRIVY_EXIT_CODE as Integer)
+                }
+            }
+        }
+        
+        stage('Push to DockerHub') {
+            steps {
+                script {
+                    echo 'Pushing Docker image to DockerHub...'
+                    dockerPush(IMAGE_NAME, IMAGE_TAG, DOCKER_CREDENTIALS)
+                }
+            }
+        }
+        
+        stage('Clean Local Images') {
+            steps {
+                script {
+                    echo 'Cleaning up local Docker images...'
+                    dockerCleanup(IMAGE_NAME, IMAGE_TAG, false)
+                }
+            }
+        }
+        
+        stage('Update Kubernetes Manifests') {
+            steps {
+                script {
+                    echo 'Updating Kubernetes manifests...'
+                    updateManifests(K8S_MANIFEST_PATH, IMAGE_NAME, IMAGE_TAG)
+                }
+            }
+        }
+        
+        stage('Push Manifests to Git') {
+            steps {
+                script {
+                    echo 'Pushing updated manifests to Git...'
+                    def commitMessage = "Update image tag to ${IMAGE_TAG} [skip ci]"
+                    gitPushChanges(commitMessage, GIT_BRANCH, GIT_CREDENTIALS)
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            script {
+                notifyBuild('SUCCESS')
+                echo 'Pipeline completed successfully!'
+                echo "Docker Image: ${IMAGE_NAME}:${IMAGE_TAG}"
+                echo "Manifests updated and pushed to Git"
+            }
+        }
+        
+        failure {
+            script {
+                notifyBuild('FAILURE')
+                echo 'Pipeline failed!'
+            }
+        }
+        
+        always {
+            script {
+                echo 'Performing final cleanup...'
+                // Clean workspace
+                cleanWs()
+            }
+        }
+    }
+}
