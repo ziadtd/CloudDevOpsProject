@@ -1,0 +1,101 @@
+name: Docker Build and Deploy
+
+on:
+  push:
+    tags:
+      - 'v*'  
+
+env:
+  DOCKERHUB_USERNAME: ziadtd
+  IMAGE_NAME: ziadtd/flask-app
+  DOCKER_BUILD_PATH: ./docker
+  K8S_MANIFEST_PATH: kubernetes
+  TRIVY_SEVERITY: CRITICAL,HIGH
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Version from Tag
+        id: extract_version
+        run: |
+          # Extract tag name (e.g., v1.2.3)
+          echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          echo "Using version: ${GITHUB_REF#refs/tags/}"
+
+      - name: Build Docker Image
+        run: |
+          echo "Building Docker image..."
+          cd ${{ env.DOCKER_BUILD_PATH }}
+          docker build -t ${{ env.IMAGE_NAME }}:${{ steps.extract_version.outputs.VERSION }} .
+          echo "Docker image built successfully"
+
+      - name: Install Trivy
+        run: |
+          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+          echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+          sudo apt-get update
+          sudo apt-get install trivy -y
+
+      - name: Scan Image with Trivy
+        run: |
+          echo "Scanning Docker image for vulnerabilities..."
+          trivy image \
+            --severity ${{ env.TRIVY_SEVERITY }} \
+            --exit-code 0 \
+            --no-progress \
+            ${{ env.IMAGE_NAME }}:${{ steps.extract_version.outputs.VERSION }}
+          echo "Trivy scan completed"
+        continue-on-error: true 
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push Image to DockerHub
+        run: |
+          echo "Pushing Docker image to DockerHub..."
+          docker push ${{ env.IMAGE_NAME }}:${{ steps.extract_version.outputs.VERSION }}
+          echo "Image pushed successfully to DockerHub"
+
+      - name: Delete Image Locally
+        run: |
+          echo "Cleaning up local Docker images..."
+          docker rmi ${{ env.IMAGE_NAME }}:${{ steps.extract_version.outputs.VERSION }} || true
+          echo "Local images cleaned up"
+
+      - name: Update Kubernetes Manifests
+        run: |
+          echo "Updating Kubernetes manifests..."
+          sed -i "s|image: ${{ env.IMAGE_NAME }}:.*|image: ${{ env.IMAGE_NAME }}:${{ steps.extract_version.outputs.VERSION }}|g" ${{ env.K8S_MANIFEST_PATH }}/deployment.yaml
+          echo "Manifests updated with new image tag"
+          
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and Push Manifests
+        run: |
+          echo "Committing and pushing updated manifests..."
+          git add ${{ env.K8S_MANIFEST_PATH }}/deployment.yaml
+          git commit -m "Updated image to ${{ steps.extract_version.outputs.VERSION }}" || echo "No changes to commit"
+          git push origin HEAD:main
+          echo "Manifests pushed to repository"
+
+      - name: Pipeline Summary
+        if: success()
+        run: |
+          echo "Pipeline completed successfully!"
+          echo "Docker Image: ${{ env.IMAGE_NAME }}:${{ steps.extract_version.outputs.VERSION }}"
+          echo "Manifests updated and pushed to Git"

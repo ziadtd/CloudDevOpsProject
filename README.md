@@ -773,3 +773,33 @@ In the Jenkins UI, **click the flask-app-ci-pipeline** item and click **Build No
 ## Deliverables:
 - Jenkinsfile at: `https://github.com/ziadtd/CloudDevOpsProject/blob/main/jenkins/Jenkinsfile`
 - Shared Library Directory (vars): `https://github.com/ziadtd/CloudDevOpsProject/blob/main/jenkins/shared-library/vars`
+
+---
+
+# Alternate Step 6: Continuous Integration with Github Actions
+
+### 1.  Add DockerHub Token
+
+Go to [DockerHub Account Settings](https://hub.docker.com/settings/security) and generate a new Access Token
+
+In the GitHub repo, go to: **Settings** → **Secrets and variables** → **Actions**
+Click **New repository secret**
+   - Name: `DOCKERHUB_TOKEN`
+   - Value: Paste DockerHub token
+Click **Add secret**
+
+### Create The Workflow File
+
+In the repo create [`pipeline.yaml`](.github/workflows/pipeline.yaml)
+
+
+Then to trigger the Pipeline **Push a tag**:
+   ```bash
+   git tag v6.5
+   git push origin v6.5
+   ```
+
+## Deliverables 
+Github Pipeline File: at: `https://github.com/ziadtd/CloudDevOpsProject/blob/main/.github/workflows/pipeline.yaml`
+
+---
