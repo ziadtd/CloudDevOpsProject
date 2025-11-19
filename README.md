@@ -655,14 +655,6 @@ Go to: Manage Jenkins → Credentials → System → Global credentials → Add 
 - **ID**: `github-credentials`
 - **Description**: GitHub Credentials
 
-3. Kubeconfig
-
-- **Kind**: Secret file
-- **File**: Upload your kubeconfig file
-- **ID**: `kubeconfig`
-- **Description**: Kubernetes Config
-
-
 ### 4. Create Shared Library Structure
 
 ```bash
@@ -695,6 +687,8 @@ In the vars subdirectory create:
 In the Jenkins Directory create:
 
 [`Jenkinsfile`](jenkins/Jenkinsfile)
+
+#### Note: To avoid Infinite loop an initial step is added to the Jenkins pipeline to ignore Commits pushed by Jenkins itself
 
 ### 7. Create Jenkins Pipeline Job
 
@@ -921,4 +915,3 @@ git push origin main
 git tag v7
 git push origin v7
 ```
-
