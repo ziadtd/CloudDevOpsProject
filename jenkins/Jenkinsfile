@@ -30,6 +30,25 @@ pipeline {
     }
     
     stages {
+         stage('Check for Skip CI') {
+            steps {
+                script {
+                    def commitMsg = sh(
+                        script: 'git log -1 --pretty=%B', 
+                        returnStdout: true
+                    ).trim()
+                    
+                    if (commitMsg.contains('[skip ci]') || commitMsg.contains('[ci skip]')) {
+                        echo "Skipping build - found [skip ci] in commit message"
+                        currentBuild.result = 'NOT_BUILT'
+                        error("Build skipped due to [skip ci]")
+                    }
+                    
+                    echo "No [skip ci] found - proceeding with build"
+                }
+            }
+        }
+
         stage('Checkout') {
             steps {
                 script {
@@ -88,7 +107,7 @@ pipeline {
             steps {
                 script {
                     echo 'Pushing updated manifests to Git...'
-                    def commitMessage = "Update image tag to ${IMAGE_TAG} [skip ci]"
+                    def commitMessage = "Updated image to ${IMAGE_TAG} [skip ci]"
                     gitPushChanges(commitMessage, GIT_BRANCH, GIT_CREDENTIALS)
                 }
             }
