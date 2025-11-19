@@ -81,6 +81,9 @@ resource "aws_instance" "jenkins" {
   depends_on = [
     aws_cloudwatch_log_group.jenkins
   ]
+  tags = {
+    Name = "jenkins"
+  }
 }
 
 resource "aws_cloudwatch_metric_alarm" "jenkins_cpu" {
