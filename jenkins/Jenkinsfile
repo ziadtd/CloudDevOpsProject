@@ -88,7 +88,7 @@ pipeline {
             steps {
                 script {
                     echo 'Pushing updated manifests to Git...'
-                    def commitMessage = "Update image tag to ${IMAGE_TAG} [skip ci]"
+                    def commitMessage = "Updated image to ${IMAGE_TAG} [skip ci]"
                     gitPushChanges(commitMessage, GIT_BRANCH, GIT_CREDENTIALS)
                 }
             }
