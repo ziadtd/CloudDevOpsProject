@@ -4,22 +4,18 @@ pipeline {
     agent any
     
     environment {
-        // Docker Configuration
         DOCKERHUB_USERNAME = 'ziadtd' 
         IMAGE_NAME = "${DOCKERHUB_USERNAME}/flask-app"
         IMAGE_TAG = "${BUILD_NUMBER}"
         DOCKER_CREDENTIALS = 'dockerhub-credentials'
         
-        // Git Configuration
         GIT_CREDENTIALS = 'github-credentials'
         GIT_BRANCH = 'main'
         
-        // Kubernetes Configuration
         K8S_MANIFEST_PATH = 'kubernetes'
         
-        // Trivy Configuration
         TRIVY_SEVERITY = 'CRITICAL,HIGH'
-        TRIVY_EXIT_CODE = '0'  // Don't fail build on vulnerabilities (set to 1 to fail)
+        TRIVY_EXIT_CODE = '0'  
     }
     
     options {
@@ -30,7 +26,7 @@ pipeline {
     }
     
     stages {
-         stage('Check for Skip CI') {
+        stage('Check for Skip CI') {
             steps {
                 script {
                     def commitMsg = sh(
@@ -134,7 +130,6 @@ pipeline {
         always {
             script {
                 echo 'Performing final cleanup...'
-                // Clean workspace
                 cleanWs()
             }
         }

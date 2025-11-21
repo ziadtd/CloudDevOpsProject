@@ -1,6 +1,4 @@
 ---
-# Global variables for all hosts
-
 # System Configuration
 timezone: "UTC"
 locale: "en_US.UTF-8"

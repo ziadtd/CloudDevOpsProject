@@ -7,8 +7,6 @@ def call(String imageName, String imageTag, String credentialsId, String registr
             docker.withRegistry(registry, credentialsId) {
                 def customImage = docker.image("${imageName}:${imageTag}")
                 customImage.push()
-                
-                // Also push as 'latest'
                 customImage.push('latest')
             }
         }

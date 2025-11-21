@@ -1,6 +1,4 @@
 ---
-# Main playbook for Jenkins server setup
-
 - name: Configure Jenkins Server
   hosts: jenkins
   gather_facts: yes

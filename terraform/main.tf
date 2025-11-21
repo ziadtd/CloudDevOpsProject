@@ -1,4 +1,3 @@
-# Get existing IAM roles
 data "aws_iam_role" "eks_cluster_role" {
   name = var.eks_cluster_role_name
 }
@@ -7,7 +6,6 @@ data "aws_iam_role" "eks_node_role" {
   name = var.eks_node_role_name
 }
 
-# Latest Amazon Linux 2 AMI
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
   owners      = ["amazon"]

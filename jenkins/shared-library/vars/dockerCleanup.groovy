@@ -12,7 +12,6 @@ def call(String imageName = '', String imageTag = '', boolean pruneAll = false) 
         }
         
         if (pruneAll) {
-            echo "Pruning unused Docker images..."
             sh """
                 docker image prune -f
                 docker system prune -f --volumes || true

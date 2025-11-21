@@ -4,7 +4,6 @@ def call(String imageName, String imageTag, String dockerfilePath = './docker') 
     
     try {
         script {
-            // Build the Docker image
             docker.build("${imageName}:${imageTag}", "${dockerfilePath}")
             
             echo "Successfully built ${imageName}:${imageTag}"

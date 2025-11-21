@@ -4,8 +4,8 @@ def call(String commitMessage, String branch = 'main', String credentialsId = 'g
     
     try {
         withCredentials([usernamePassword(credentialsId: credentialsId, 
-                                          usernameVariable: 'GIT_USERNAME', 
-                                          passwordVariable: 'GIT_PASSWORD')]) {
+                                        usernameVariable: 'GIT_USERNAME', 
+                                        passwordVariable: 'GIT_PASSWORD')]) {
             sh """
                 # Configure Git
                 git config user.email "jenkins@clouddevops.local"

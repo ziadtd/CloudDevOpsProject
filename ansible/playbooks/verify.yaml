@@ -1,6 +1,4 @@
 ---
-# Verification playbook to check all installations
-
 - name: Verify Jenkins Server Configuration
   hosts: tag_Project_CloudDevOpsProject
   gather_facts: yes

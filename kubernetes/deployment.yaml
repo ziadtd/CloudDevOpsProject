@@ -63,7 +63,6 @@ spec:
           successThreshold: 1
           failureThreshold: 3
         
-        # Security context
         securityContext:
           runAsNonRoot: true
           runAsUser: 1001
@@ -72,5 +71,4 @@ spec:
             drop:
             - ALL
         
-      # Restart policy
       restartPolicy: Always

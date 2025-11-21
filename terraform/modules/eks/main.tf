@@ -81,7 +81,6 @@ resource "aws_eks_cluster" "main" {
   ]
 }
 
-# Add NodePort rule to the EKS-managed security group
 resource "aws_security_group_rule" "eks_managed_nodeport" {
   type              = "ingress"
   from_port         = 30000
