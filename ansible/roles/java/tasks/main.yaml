@@ -1,6 +1,4 @@
 ---
-# Java role - Install and configure Java
-
 - name: Check available Java versions
   shell: yum list available | grep -i openjdk | head -10
   register: available_java
@@ -9,38 +7,8 @@
   tags:
     - java
 
-- name: Install Java OpenJDK 17 (dnf)
-  dnf:
-    name: java-17-openjdk-devel
-    state: present
-    use_backend: "{{ dnf_backend }}"
-  when: 
-    - use_dnf | default(false) | bool
-    - "'java-17-openjdk-devel' in available_java.stdout"
-  tags:
-    - java
-
-- name: Install Java OpenJDK 11 (dnf) - fallback
-  dnf:
-    name: java-11-openjdk-devel
-    state: present
-    use_backend: "{{ dnf_backend }}"
-  when: 
-    - use_dnf | default(false) | bool
-    - "'java-17-openjdk-devel' not in available_java.stdout"
-  tags:
-    - java
-
-- name: Install Java OpenJDK 17 (yum)
-  shell: yum install -y java-17-openjdk-devel
-  when: 
-    - not use_dnf | default(false) | bool
-    - "'java-17-openjdk-devel' in available_java.stdout"
-  tags:
-    - java
-
-- name: Install Java OpenJDK 11 (yum) - fallback for Amazon Linux 2
-  shell: yum install -y java-11-openjdk-devel
+- name: Install Java OpenJDK 17
+  shell: yum -y install java-17-amazon-corretto-devel
   when: 
     - not use_dnf | default(false) | bool
     - "'java-17-openjdk-devel' not in available_java.stdout"

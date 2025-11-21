@@ -1,44 +1,12 @@
 ---
-# Common role - System updates and basic configuration
-
-- name: Update all packages (dnf)
-  dnf:
-    name: '*'
-    state: latest
-    update_cache: yes
-    use_backend: "{{ dnf_backend }}"
-  when: use_dnf | default(false) | bool
-  tags:
-    - common
-    - updates
-
-- name: Update all packages (yum)
+- name: Update all packages 
   shell: yum update -y
   when: not use_dnf | default(false) | bool
   tags:
     - common
     - updates
 
-- name: Install useful system packages (dnf)
-  dnf:
-    name:
-      - wget
-      - curl
-      - vim
-      - unzip
-      - tar
-      - net-tools
-      - yum-utils
-      - device-mapper-persistent-data
-      - lvm2
-    state: present
-    use_backend: "{{ dnf_backend }}"
-  when: use_dnf | default(false) | bool
-  tags:
-    - common
-    - packages
-
-- name: Install useful system packages (yum)
+- name: Install useful system packages 
   shell: yum install -y wget curl vim unzip tar net-tools yum-utils device-mapper-persistent-data lvm2
   when: not use_dnf | default(false) | bool
   tags:
@@ -52,7 +20,7 @@
     - common
     - timezone
 
-- name: Disable SELinux (if configured)
+- name: Disable SELinux 
   selinux:
     state: disabled
   when: disable_selinux | bool

@@ -1,19 +1,5 @@
 ---
-# Docker role - Install and configure Docker
-
-- name: Install Docker dependencies (dnf)
-  dnf:
-    name:
-      - yum-utils
-      - device-mapper-persistent-data
-      - lvm2
-    state: present
-    use_backend: "{{ dnf_backend }}"
-  when: use_dnf | default(false) | bool
-  tags:
-    - docker
-
-- name: Install Docker dependencies (yum)
+- name: Install Docker dependencies
   shell: yum install -y yum-utils device-mapper-persistent-data lvm2
   when: not use_dnf | default(false) | bool
   tags:

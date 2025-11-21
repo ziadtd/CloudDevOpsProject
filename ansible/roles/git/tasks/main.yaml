@@ -1,16 +1,5 @@
 ---
-# Git role - Install and configure Git
-
-- name: Install Git (dnf)
-  dnf:
-    name: "{{ git_packages | default(['git']) }}"
-    state: present
-    use_backend: "{{ dnf_backend }}"
-  when: use_dnf | default(false) | bool
-  tags:
-    - git
-
-- name: Install Git (yum)
+- name: Install Git 
   shell: yum install -y git
   when: not use_dnf | default(false) | bool
   tags:
