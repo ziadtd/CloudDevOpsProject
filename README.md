@@ -74,13 +74,13 @@ For detailed instructions, see the component-specific documentation in the [Docs
 
 Docker Images: [DockerHub Repository](https://hub.docker.com/repository/docker/ziadtd/flask-app/general)
 
-Terraform Modules: [terraform](terraform/)
+Terraform Modules: [Terraform](terraform/)
 
-Kubernetes Manifests: [kubernetes](kubernetes/)
+Kubernetes Manifests: [Kubernetes](kubernetes/)
 
-Ansible Playbooks: [ansible](ansible/)
+Ansible Playbooks: [Ansible](ansible/)
 
-CI/CD Pipeline Files: [Jenkins shared library](jenkins/)  & [GitHub Actions workflow](.github/)
+CI/CD Pipeline Files: [Jenkins Shared Library](jenkins/)  & [GitHub Actions Workflow](.github/)
 
 ---
 
