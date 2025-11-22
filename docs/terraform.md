@@ -168,9 +168,19 @@ kubectl get ingress -n ivolve
 #i.e. http://aa6202944f7f74fc69ce6fd97863eb02-23b5ff77e8883da9.elb.us-east-1.amazonaws.com/
 ```
 
-Alternatively this can be achieved by using terraform
+Alternatively this is  be achieved by using terraform
 
- [`ingress.tf`](../terraform/ingress.tf)
+ [`ingress.tf`](../terraform/ingress.tf)                    
+
+ The URL is included in the terraform output:
+ ```bash
+ terraform apply
+# After completion, Terraform prints:
+# Outputs:
+# ingress_controller_url = "http://a0d8d68e222db4048a6471bbcda9408f-43245493.us-east-1.elb.amazonaws.com/"
+ ```
+ This replaces the manual steps of applying the Ingress controller
+
 
 ### 9. Commit to Repository
 

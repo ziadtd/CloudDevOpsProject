@@ -1,29 +1,40 @@
-# ---------------------------
-# Helm Provider (uses kubeconfig)
-# ---------------------------
+# ================================
+# Providers
+# ================================
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
 
+provider "helm" {
+  kubernetes = {
+    config_path = "~/.kube/config"
+  }
+}
 
-# ---------------------------
-# Install NGINX Ingress via Helm
-# ---------------------------
+# ================================
+# Helm Release: ingress-nginx
+# ================================
 resource "helm_release" "ingress_nginx" {
   name       = "ingress-nginx"
+  namespace  = "ingress-nginx"
   repository = "https://kubernetes.github.io/ingress-nginx"
   chart      = "ingress-nginx"
-  version    = "4.10.0"   # stable & compatible with EKS 1.26+
+  version    = "4.14.0"
 
-  namespace        = "ingress-nginx"
   create_namespace = true
 
-  values = [
-    file("${path.module}/ingress-nginx-values.yaml")
+  set = [
+    {
+      name  = "controller.publishService.enabled"
+      value = "true"
+    }
   ]
 }
 
-# ---------------------------
-# Get the AWS NLB hostname
-# ---------------------------
-data "kubernetes_service" "ingress_nginx" {
+# ================================
+# Wait for the ingress-nginx service
+# ================================
+data "kubernetes_service" "ingress_nginx_controller" {
   depends_on = [helm_release.ingress_nginx]
 
   metadata {
@@ -32,6 +43,11 @@ data "kubernetes_service" "ingress_nginx" {
   }
 }
 
-output "ingress_nlb_hostname" {
-  value = data.kubernetes_service.ingress_nginx.status[0].load_balancer[0].ingress[0].hostname
+# ================================
+# Output external IP
+# ================================
+output "ingress_controller_ip" {
+    value = "http://${data.kubernetes_service.ingress_nginx_controller.status[0].load_balancer[0].ingress[0].hostname}"
+  description = "External IP of ingress-nginx controller"
 }
+
