@@ -154,12 +154,12 @@ curl http://< NODE_EXTERNAL_IP >:30012
 ```
 To access it using a URL:
 
-#### Note: Due to restrictions on the AWS Learner LAB the LB couldn't be properly configured so a simple Ngnix Ingress Controller was used
+#### Note: Due to restrictions on the AWS Learner Lab the LB couldn't be properly configured so a simple Ngnix Ingress Controller was used
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/aws/deploy.yaml
 
-# Wait for the NLB to be created (takes 2-3 minutes)
+# Wait for the Ingress Contoller to be created (takes 2-3 minutes)
 kubectl get svc -n ingress-nginx ingress-nginx-controller --watch
 
 # Once EXTERNAL-IP appears:
@@ -167,6 +167,10 @@ kubectl get ingress -n ivolve
 #Address Column shows App URL
 #i.e. http://aa6202944f7f74fc69ce6fd97863eb02-23b5ff77e8883da9.elb.us-east-1.amazonaws.com/
 ```
+
+Alternatively this can be achieved by using terraform
+
+ [`ingress.tf`](../terraform/ingress.tf)
 
 ### 9. Commit to Repository
 
