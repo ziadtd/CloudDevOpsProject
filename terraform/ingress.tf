@@ -1,6 +1,3 @@
-# ================================
-# Providers
-# ================================
 provider "kubernetes" {
   config_path = "~/.kube/config"
 }
@@ -11,9 +8,6 @@ provider "helm" {
   }
 }
 
-# ================================
-# Helm Release: ingress-nginx
-# ================================
 resource "helm_release" "ingress_nginx" {
   name       = "ingress-nginx"
   namespace  = "ingress-nginx"
@@ -31,9 +25,6 @@ resource "helm_release" "ingress_nginx" {
   ]
 }
 
-# ================================
-# Wait for the ingress-nginx service
-# ================================
 data "kubernetes_service" "ingress_nginx_controller" {
   depends_on = [helm_release.ingress_nginx]
 
@@ -43,9 +34,6 @@ data "kubernetes_service" "ingress_nginx_controller" {
   }
 }
 
-# ================================
-# Output external IP
-# ================================
 output "ingress_controller_ip" {
     value = "http://${data.kubernetes_service.ingress_nginx_controller.status[0].load_balancer[0].ingress[0].hostname}"
   description = "External IP of ingress-nginx controller"
