@@ -108,7 +108,7 @@ curl http://APP_URL
 
 ### 11. Test GitOps Workflow
 
-Change Source Directory
+Add some changes to the application source directory
 
 ```bash
 git add src/
